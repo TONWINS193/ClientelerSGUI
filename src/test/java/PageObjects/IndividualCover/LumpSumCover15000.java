@@ -29,6 +29,8 @@ public class LumpSumCover15000 extends PageObject {
 
     String LeadBasketXpath = "/html/body/shamba-root/shamba-layout/div/div[1]/sale-ribbon/div/div/div/div/div/nav/div[1]/a/div/i";
 
+    String LeadBasketFilterXpath = "(//input[@id='LeasdsBasketFilter'])[2]";
+
     String leadCheckBox = "(//input[@id='undefined'])[1]";
 
     String ActionSaleBtn = "(//i[@class='bi bi-cash-coin'])[1]";
@@ -208,6 +210,13 @@ public class LumpSumCover15000 extends PageObject {
 
         $(By.xpath(LeadBasketXpath)).click();
 
+    }
+
+    @Step("Select New on lead basket filter ")
+    public void selectNew()throws InterruptedException{
+        Thread.sleep(2000);
+
+        $(By.xpath(LeadBasketFilterXpath)).click();
     }
 
     @Step("Select a lead to action a sale")
@@ -772,41 +781,42 @@ public class LumpSumCover15000 extends PageObject {
 
     @Step("Navigate to Summary Page")
     public void navigateSummary()throws InterruptedException{
-        Thread.sleep(4000);
+        Thread.sleep(5000);
 
         $(By.xpath(SummaryXpath)).click();
 
-        WebElement checkbox = $(By.xpath("/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[2]/div/div[2]/accept-sale/div/div[3]/div/div/ul/li[1]/input"));
+
+        WebElement checkbox = $(By.xpath("(//input[@type='checkbox'])[1]"));
 
         if (!checkbox.isSelected()) {
             checkbox.click();
         }
 
-        WebElement checkbox1 = $(By.xpath("//body[1]/shamba-root[1]/shamba-layout[1]/div[1]/div[2]/sale[1]/div[1]/div[2]/div[1]/app-sale-capture[1]/div[1]/div[1]/div[1]/div[1]/div[2]/sale-capture-control[1]/div[1]/div[2]/div[1]/div[2]/accept-sale[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[2]/ul[1]/li[1]/input[1]"));
+        WebElement checkbox1 = $(By.xpath("(//input[@type='checkbox'])[2]"));
 
         if (!checkbox1.isSelected()) {
             checkbox1.click();
         }
 
-        WebElement checkbox2 = $(By.xpath("//body[1]/shamba-root[1]/shamba-layout[1]/div[1]/div[2]/sale[1]/div[1]/div[2]/div[1]/app-sale-capture[1]/div[1]/div[1]/div[1]/div[1]/div[2]/sale-capture-control[1]/div[1]/div[2]/div[1]/div[2]/accept-sale[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[2]/ul[1]/li[2]/input[1]"));
+        WebElement checkbox2 = $(By.xpath("(//input[@type='checkbox'])[3]"));
 
         if (!checkbox2.isSelected()) {
             checkbox2.click();
         }
 
-        WebElement checkbox3 = $(By.xpath("//body[1]/shamba-root[1]/shamba-layout[1]/div[1]/div[2]/sale[1]/div[1]/div[2]/div[1]/app-sale-capture[1]/div[1]/div[1]/div[1]/div[1]/div[2]/sale-capture-control[1]/div[1]/div[2]/div[1]/div[2]/accept-sale[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[2]/ul[1]/li[3]/input[1]"));
+        WebElement checkbox3 = $(By.xpath("(//input[@type='checkbox'])[4]"));
 
         if (!checkbox3.isSelected()) {
             checkbox3.click();
         }
 
-        WebElement checkbox4 = $(By.xpath("//body[1]/shamba-root[1]/shamba-layout[1]/div[1]/div[2]/sale[1]/div[1]/div[2]/div[1]/app-sale-capture[1]/div[1]/div[1]/div[1]/div[1]/div[2]/sale-capture-control[1]/div[1]/div[2]/div[1]/div[2]/accept-sale[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[2]/ul[1]/li[4]/input[1]"));
+        WebElement checkbox4 = $(By.xpath("(//input[@type='checkbox'])[5]"));
 
         if (!checkbox4.isSelected()) {
             checkbox4.click();
         }
 
-        WebElement checkbox5 = $(By.xpath("//body[1]/shamba-root[1]/shamba-layout[1]/div[1]/div[2]/sale[1]/div[1]/div[2]/div[1]/app-sale-capture[1]/div[1]/div[1]/div[1]/div[1]/div[2]/sale-capture-control[1]/div[1]/div[2]/div[1]/div[2]/accept-sale[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[2]/ul[1]/li[5]/input[1]"));
+        WebElement checkbox5 = $(By.xpath("(//input[@type='checkbox'])[6]"));
 
         if (!checkbox5.isSelected()) {
             checkbox5.click();
@@ -826,7 +836,7 @@ public class LumpSumCover15000 extends PageObject {
 
     @Step("Debi-check page")
     public void debiCheck()throws InterruptedException{
-        Thread.sleep(7000);
+        Thread.sleep(4000);
 
 
         $(By.xpath(ConfirmDebiCheckXpath)).click();
