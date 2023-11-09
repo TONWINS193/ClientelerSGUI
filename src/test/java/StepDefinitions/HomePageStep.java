@@ -17,22 +17,22 @@ public class HomePageStep extends PageObject {
         homePage.OpenWebsite();
     }
     @When("user clicks on login button")
-    public void user_clicks_on_login_button() throws InterruptedException{
+    public void user_clicks_on_login_button(){
         homePage.LoginButton();
 
     }
     @When("user enters {string}")
-    public void user_enters(String username)throws InterruptedException {
-        homePage.Username("WRambau@clientele.co.za");
+    public void user_enters(String username){
+        homePage.Username(username);
 
     }
     @When("user clicks on next button")
-    public void user_clicks_on_next_button() throws InterruptedException {
+    public void user_clicks_on_next_button(){
         homePage.NextButton();
     }
     @Then("user Input {string}")
-    public void user_input(String password) throws InterruptedException {
-        homePage.Password("clientele001");
+    public void user_input(String password){
+        homePage.Password(password);
 
     }
     @Then("user clicks on sign-in button")

@@ -11,7 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class LumpSumCover15000 extends PageObject {
+public class LumpSumCover25000 extends PageObject {
+
     String Url = "https://shambawebtest.clientele.co.za/shambaweb/login";
 
     String LoginBtn = "//*[@id=\"navbarSupportedContent\"]/div/div/button/span";
@@ -290,25 +291,25 @@ public class LumpSumCover15000 extends PageObject {
     }
 
     @Step("Click on Main life DoB text field and select dates")
-    public void SelectDoB(String DOB)throws InterruptedException{
+    public void SelectDoB(String DateOfBirth)throws InterruptedException{
         Thread.sleep(5000);
 
         WebElement DoB =  $(By.xpath(MainLifeDoB) );
 
         DoB.click();
 
-        DoB.sendKeys(DOB + Keys.ENTER);
+        DoB.sendKeys(DateOfBirth + Keys.ENTER);
 
 
     }
 
-    @Step("Select cover amount of R15000 on the slider bar")
+    @Step("Select cover amount of R25000 on the slider bar")
     public void selectCoverAmount()throws InterruptedException{
         Thread.sleep(5000);
 
         $(By.xpath(SliderBarXpath)).click();
 
-        WebElement sliderPointer = $(By.xpath("//span[@aria-label='ngx-slider']"));
+        WebElement sliderPointer = $(By.xpath("(//div[@class='ngx-slider-inner-tooltip ng-star-inserted'])[4]"));
         sliderPointer.click();
 
     }
@@ -412,13 +413,13 @@ public class LumpSumCover15000 extends PageObject {
 
     }
 
-    @Step("Enter Date of Birth on input field text")
-    public void EnterDoB(String DateOfBirth){
-        WebElement fieldText = $(By.xpath(DoBXpath));
-        fieldText.click();
-        fieldText.sendKeys(DateOfBirth);
+   // @Step("Enter Date of Birth on input field text")
+    //public void EnterDoB(String DateOfBirth){
+       // WebElement fieldText = $(By.xpath(DoBXpath));
+       // fieldText.click();
+        //fieldText.sendKeys(DateOfBirth);
 
-    }
+  //  }
 
     @Step("Select monthly income from dropdown")
     public void selectMonthlyIncome(String MonthlyIncome){
@@ -734,7 +735,7 @@ public class LumpSumCover15000 extends PageObject {
 
         WebElement isProminentPublicOfficial = $(By.xpath("//select[@id='IsProminentPublicOfficial']"));
         Select selectObject = new Select(isProminentPublicOfficial);
-        selectObject.selectByValue("No");
+        selectObject.selectByValue("Yes");
 
         WebElement isProminentInternationalPublicOfficial = $(By.xpath("//select[@id='IsProminentInternationalPublicOfficial']"));
         Select selectObject1 = new Select(isProminentInternationalPublicOfficial);
@@ -846,18 +847,16 @@ public class LumpSumCover15000 extends PageObject {
 
 
 
-
-
     }
 
     @Step("View summary table page")
     public void summaryTable()throws InterruptedException{
         WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(10));
 
-       WebElement bootstrap = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(SummaryTableXpath)));
+        WebElement bootstrap = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(SummaryTableXpath)));
         bootstrap.click();
 
-       getDriver().wait(60000);
+        getDriver().wait(60000);
 
     }
 }

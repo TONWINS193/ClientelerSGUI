@@ -14,4 +14,4 @@ Feature: home Page Functionality
 
       Examples:
       | Username               | Password
-      | WRambau@clientele.co.za| clientele001
+      | WRambau@clientele.co.za| clientele003

@@ -4,6 +4,7 @@ import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.waits.Wait;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,7 +12,7 @@ import java.time.Duration;
 
 public class HomePage extends PageObject {
 
-    String Url = "https://shambawebtest.clientele.co.za/shambaweb/login";
+    String Url = "https://shambawebtest.clientele.co.za/shambaweb/home";
 
     String LoginBtn = "//*[@id=\"navbarSupportedContent\"]/div/div/button/span";
     String UserName = "//*[@id=\"i0116\"]";
@@ -29,42 +30,65 @@ public class HomePage extends PageObject {
         getDriver().manage().window().maximize();
         Thread.sleep(3000);
     }
+
     @Step("Clicks on LoginButton")
     public void LoginButton(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60) );
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10) );
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(LoginBtn))).click();
+       WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(LoginBtn)));
+
+       element.click();
+
 
     }
     @Step("Enter Username ")
     public void Username(String Username){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60) );
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(UserName))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(UserName))).sendKeys(Username);
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10) );
+
+       WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(UserName)));
+
+       element.click();
+
+       WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(UserName)));
+
+       element1.sendKeys(Username);
+
 
     }
 
     @Step("Clicks on NextButton")
     public void NextButton(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60) );
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10) );
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(NextBtn))).click();
+       WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(NextBtn)));
+
+       element.click();
 
     }
 
     @Step("Enter Password")
     public void Password(String password){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60) );
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Password))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Password))).sendKeys(password);
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10) );
+
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Password)));
+
+        element.click();
+
+       WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Password)));
+
+       element1.sendKeys(password);
+
 
     }
 
     @Step("Clicks on SignIn")
-    public void SignIn(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60) );
+    public void SignIn() throws  InterruptedException{
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10) );
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(SignIn))).click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(SignIn)));
+
+        element.click();
+        Thread.sleep(5000);
     }
 
 

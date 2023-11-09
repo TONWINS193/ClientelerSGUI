@@ -1,4 +1,4 @@
-package PageObjects.IndividualCover;
+package PageObjects;
 
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
@@ -11,7 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class LumpSumCover15000 extends PageObject {
+public class PayerPage extends PageObject {
+
+
     String Url = "https://shambawebtest.clientele.co.za/shambaweb/login";
 
     String LoginBtn = "//*[@id=\"navbarSupportedContent\"]/div/div/button/span";
@@ -29,8 +31,6 @@ public class LumpSumCover15000 extends PageObject {
 
     String LeadBasketXpath = "/html/body/shamba-root/shamba-layout/div/div[1]/sale-ribbon/div/div/div/div/div/nav/div[1]/a/div/i";
 
-    String LeadBasketFilterXpath = "(//input[@id='LeasdsBasketFilter'])[2]";
-
     String leadCheckBox = "(//input[@id='undefined'])[1]";
 
     String ActionSaleBtn = "(//i[@class='bi bi-cash-coin'])[1]";
@@ -46,13 +46,11 @@ public class LumpSumCover15000 extends PageObject {
     String PlanOptionXpath = "//select[@formcontrolname=\"planOption\"]";
     String MainLifeDoB = "//input[@type='text']";
 
-    String SliderBarXpath = "//span[@class='ngx-slider-span ngx-slider-bar-wrapper ngx-slider-full-bar']";
-
     String ViewRates = "//span[@class='title']";
 
     String StartSale = "//*[@id=\"bootstrap-table\"]/tbody/tr/td[9]/button[1]/span/i";
 
-    String FAISXpath = "//button[normalize-space()='Continue']";
+    String FAIS = "//button[normalize-space()='Continue']";
 
     String TittleXpath = "//select[@id='Title']";
 
@@ -90,7 +88,7 @@ public class LumpSumCover15000 extends PageObject {
 
     String SaveMainMemberXpath = "//*[@id=\"pills-tabContent\"]/member/div/div[2]/div/div[2]/button";
 
-    String PayerXpath ="/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[2]/div[2]";
+    String PayerXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[2]/div[2]";
 
     String PayerTittleXpath = "//select[@id='Title']";
 
@@ -135,34 +133,6 @@ public class LumpSumCover15000 extends PageObject {
     String CheckBox1Xpath = "(//input[@type='checkbox'])[2]";
 
     String SavePayerXpath = "//button[@class='btn btn-success']";
-
-    String SpouseXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[3]/div[2]";
-
-    String ChildXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[4]/div[2]";
-
-    String BeneficiaryXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[5]/div[2]";
-
-    String AddBenXpath = "//button[@class='mat-focus-indicator mat-flat-button mat-button-base mat-primary']";
-
-    String RelationXpath = "//select[@id='Relation']";
-
-    String SaveBenXpath = "//span[normalize-space()='Save Beneficiary']";
-
-    String FICAXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[6]/div[2]";
-
-    String PremiumXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[7]/div[2]";
-
-    String RewardsXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[8]/div[2]";
-
-    String SummaryXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[9]/div[2]";
-
-    String ConfirmDebiCheckXpath = "//input[@type='checkbox'][1]";
-
-    String SummaryTableXpath = "//table[@id='bootstrap-table']";
-
-
-
-
 
 
     @Step("Open shamba website")
@@ -210,13 +180,6 @@ public class LumpSumCover15000 extends PageObject {
 
         $(By.xpath(LeadBasketXpath)).click();
 
-    }
-
-    @Step("Select New on lead basket filter ")
-    public void selectNew()throws InterruptedException{
-        Thread.sleep(2000);
-
-        $(By.xpath(LeadBasketFilterXpath)).click();
     }
 
     @Step("Select a lead to action a sale")
@@ -284,32 +247,21 @@ public class LumpSumCover15000 extends PageObject {
         WebElement dropdown = $(By.xpath(PlanOptionXpath));
         Select selectObject = new Select(dropdown);
 
-        selectObject.selectByVisibleText("Individual");
+        selectObject.selectByValue("Individual");
 
 
     }
 
     @Step("Click on Main life DoB text field and select dates")
-    public void SelectDoB(String DOB)throws InterruptedException{
+    public void SelectDoB(String DateOfBirth)throws InterruptedException{
         Thread.sleep(5000);
 
         WebElement DoB =  $(By.xpath(MainLifeDoB) );
 
         DoB.click();
 
-        DoB.sendKeys(DOB + Keys.ENTER);
+        DoB.sendKeys(DateOfBirth + Keys.ENTER);
 
-
-    }
-
-    @Step("Select cover amount of R15000 on the slider bar")
-    public void selectCoverAmount()throws InterruptedException{
-        Thread.sleep(5000);
-
-        $(By.xpath(SliderBarXpath)).click();
-
-        WebElement sliderPointer = $(By.xpath("//span[@aria-label='ngx-slider']"));
-        sliderPointer.click();
 
     }
 
@@ -329,10 +281,10 @@ public class LumpSumCover15000 extends PageObject {
     }
 
     @Step("Click continue or cancel button on FAIS Disclosure PopUp Link")
-    public void handleModelPopUp(){
+    public void handleModelPopUp(String action){
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(FAISXpath)));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(FAIS)));
 
         element.click();
 
@@ -340,9 +292,7 @@ public class LumpSumCover15000 extends PageObject {
     }
 
     @Step("Select Tittle type from dropdown")
-    public void selectTittleDropdown(String Tittle)throws InterruptedException{
-        Thread.sleep(3000);
-
+    public void selectTittleDropdown(String Tittle){
         WebElement dropdown = $(By.xpath(TittleXpath));
         Select selectObject = new Select(dropdown);
 
@@ -391,13 +341,15 @@ public class LumpSumCover15000 extends PageObject {
         mainIDPopUP.click();
         mainIDPopUP.sendKeys(IDNumber);
 
+
     }
+
 
     @Step("Click on confirm ID Number PopUp")
     public void confirmID(String IDNumber){
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
-        WebElement confirmInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ConfirmID)));
+        WebElement confirmInput = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ConfirmID)));
         confirmInput.click();
         confirmInput.sendKeys(IDNumber);
 
@@ -487,8 +439,7 @@ public class LumpSumCover15000 extends PageObject {
     }
 
     @Step("Click on Validate button")
-    public void clickValidateBtn()throws InterruptedException{
-        Thread.sleep(3000);
+    public void clickValidateBtn(){
 
         WebElement element = $(By.xpath(ValidateBtnXpath));
 
@@ -562,8 +513,7 @@ public class LumpSumCover15000 extends PageObject {
     }
 
     @Step("Click  OK button to capture ID")
-    public void clickOK()throws InterruptedException{
-        Thread.sleep(5000);
+    public void clickOK(){
 
         $(By.xpath(OKPopUpXpath)).click();
     }
@@ -685,179 +635,8 @@ public class LumpSumCover15000 extends PageObject {
     }
 
     @Step("Click on Save Payer Button")
-    public void clickSaveBtn()throws InterruptedException{
+    public void clickSaveBtn(){
         WebElement button = $(By.xpath(SavePayerXpath));
         button.click();
-
-    }
-
-
-    @Step("Navigate to Beneficiary Page")
-    public void navigateBeneficiary()throws InterruptedException{
-        Thread.sleep(5000);
-
-        $(By.xpath(BeneficiaryXpath)).click();
-
-    }
-
-    @Step("Click on Add Beneficiary button")
-    public void addBeneficiary(){
-
-        $(By.xpath(AddBenXpath)).click();
-
-    }
-
-    @Step("Select Member Estate from Relationship dropdown")
-    public void selectRelation(String Relationship){
-        WebElement dropdown = $(By.xpath(RelationXpath));
-        Select selectObject = new Select(dropdown);
-
-        selectObject.selectByValue(Relationship);
-    }
-
-    @Step("Click Save Beneficiary Button")
-    public void saveBeneficiary()throws InterruptedException {
-
-        $(By.xpath(SaveBenXpath)).click();
-        Thread.sleep(5000);
-
-        WebElement PopUp = $(By.xpath("//button[@type='button']"));
-        PopUp.click();
-
-    }
-
-    @Step("Navigate to FICA Page")
-    public void navigateFICA()throws  InterruptedException{
-        Thread.sleep(5000);
-
-        $(By.xpath(FICAXpath)).click();
-
-        WebElement isProminentPublicOfficial = $(By.xpath("//select[@id='IsProminentPublicOfficial']"));
-        Select selectObject = new Select(isProminentPublicOfficial);
-        selectObject.selectByValue("No");
-
-        WebElement isProminentInternationalPublicOfficial = $(By.xpath("//select[@id='IsProminentInternationalPublicOfficial']"));
-        Select selectObject1 = new Select(isProminentInternationalPublicOfficial);
-        selectObject1.selectByValue("No");
-
-        $(By.xpath("//span[@class='title']")).click();
-
-    }
-
-    @Step("Navigate to Premium Page")
-    public void navigatePremium()throws InterruptedException{
-        Thread.sleep(5000);
-
-        $(By.xpath(PremiumXpath)).click();
-        WebElement dropdown = $(By.xpath("//select[@id='productConversion']"));
-        Select selectObject = new Select(dropdown);
-        selectObject.getAllSelectedOptions();
-
-        String targetPointXpath = "//span[@aria-label='ngx-slider']";
-        WebElement targetPoint = $(By.xpath(targetPointXpath));
-        targetPoint.click();
-
-        WebElement savePremium = $(By.xpath("//span[@class='title']"));
-        savePremium.click();
-
-    }
-
-    @Step("Navigate to Rewards Page")
-    public void navigateRewards()throws InterruptedException{
-        Thread.sleep(5000);
-
-        $(By.xpath(RewardsXpath)).click();
-
-        WebElement checkbox = $(By.xpath("(//input[@type='checkbox'])[1]"));
-
-        if (!checkbox.isSelected()) {
-            checkbox.click();
-        }
-
-        WebElement savePremium = $(By.xpath("//span[@class='title']"));
-        savePremium.click();
-
-    }
-
-    @Step("Navigate to Summary Page")
-    public void navigateSummary()throws InterruptedException{
-        Thread.sleep(5000);
-
-        $(By.xpath(SummaryXpath)).click();
-
-
-        WebElement checkbox = $(By.xpath("(//input[@type='checkbox'])[1]"));
-
-        if (!checkbox.isSelected()) {
-            checkbox.click();
-        }
-
-        WebElement checkbox1 = $(By.xpath("(//input[@type='checkbox'])[2]"));
-
-        if (!checkbox1.isSelected()) {
-            checkbox1.click();
-        }
-
-        WebElement checkbox2 = $(By.xpath("(//input[@type='checkbox'])[3]"));
-
-        if (!checkbox2.isSelected()) {
-            checkbox2.click();
-        }
-
-        WebElement checkbox3 = $(By.xpath("(//input[@type='checkbox'])[4]"));
-
-        if (!checkbox3.isSelected()) {
-            checkbox3.click();
-        }
-
-        WebElement checkbox4 = $(By.xpath("(//input[@type='checkbox'])[5]"));
-
-        if (!checkbox4.isSelected()) {
-            checkbox4.click();
-        }
-
-        WebElement checkbox5 = $(By.xpath("(//input[@type='checkbox'])[6]"));
-
-        if (!checkbox5.isSelected()) {
-            checkbox5.click();
-        }
-
-        WebElement concludeSale = $(By.xpath("//button[@type='button']"));
-        concludeSale.click();
-
-        WebElement concludePopUp = $(By.xpath("//button[contains(text(),'Conclude Sale')]"));
-        concludePopUp.click();
-
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
-        wait.until(ExpectedConditions.stalenessOf(concludePopUp));
-
-    }
-
-    @Step("Debi-check page")
-    public void debiCheck()throws InterruptedException{
-        Thread.sleep(7000);
-
-
-        $(By.xpath(ConfirmDebiCheckXpath)).click();
-        Thread.sleep(2000);
-
-
-        $(By.xpath("//span[@class='title'][1]")).click();
-
-
-
-
-
-    }
-
-    @Step("View summary table page")
-    public void summaryTable()throws InterruptedException{
-        WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(10));
-
-       WebElement bootstrap = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(SummaryTableXpath)));
-        bootstrap.click();
-
-       getDriver().wait(60000);
-
     }
 }

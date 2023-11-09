@@ -1,7 +1,8 @@
-package PageObjects.IndividualCover;
+package PageObjects;
 
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,7 +12,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class LumpSumCover15000 extends PageObject {
+public class SpousePage extends PageObject {
+
+
     String Url = "https://shambawebtest.clientele.co.za/shambaweb/login";
 
     String LoginBtn = "//*[@id=\"navbarSupportedContent\"]/div/div/button/span";
@@ -29,8 +32,6 @@ public class LumpSumCover15000 extends PageObject {
 
     String LeadBasketXpath = "/html/body/shamba-root/shamba-layout/div/div[1]/sale-ribbon/div/div/div/div/div/nav/div[1]/a/div/i";
 
-    String LeadBasketFilterXpath = "(//input[@id='LeasdsBasketFilter'])[2]";
-
     String leadCheckBox = "(//input[@id='undefined'])[1]";
 
     String ActionSaleBtn = "(//i[@class='bi bi-cash-coin'])[1]";
@@ -45,8 +46,6 @@ public class LumpSumCover15000 extends PageObject {
 
     String PlanOptionXpath = "//select[@formcontrolname=\"planOption\"]";
     String MainLifeDoB = "//input[@type='text']";
-
-    String SliderBarXpath = "//span[@class='ngx-slider-span ngx-slider-bar-wrapper ngx-slider-full-bar']";
 
     String ViewRates = "//span[@class='title']";
 
@@ -156,7 +155,7 @@ public class LumpSumCover15000 extends PageObject {
 
     String SummaryXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[9]/div[2]";
 
-    String ConfirmDebiCheckXpath = "//input[@type='checkbox'][1]";
+    String ConfirmDebiCheckXpath = "//input[@type='checkbox']";
 
     String SummaryTableXpath = "//table[@id='bootstrap-table']";
 
@@ -210,13 +209,6 @@ public class LumpSumCover15000 extends PageObject {
 
         $(By.xpath(LeadBasketXpath)).click();
 
-    }
-
-    @Step("Select New on lead basket filter ")
-    public void selectNew()throws InterruptedException{
-        Thread.sleep(2000);
-
-        $(By.xpath(LeadBasketFilterXpath)).click();
     }
 
     @Step("Select a lead to action a sale")
@@ -284,32 +276,21 @@ public class LumpSumCover15000 extends PageObject {
         WebElement dropdown = $(By.xpath(PlanOptionXpath));
         Select selectObject = new Select(dropdown);
 
-        selectObject.selectByVisibleText("Individual");
+        selectObject.selectByValue("Individual");
 
 
     }
 
     @Step("Click on Main life DoB text field and select dates")
-    public void SelectDoB(String DOB)throws InterruptedException{
+    public void SelectDoB(String DateOfBirth)throws InterruptedException{
         Thread.sleep(5000);
 
         WebElement DoB =  $(By.xpath(MainLifeDoB) );
 
         DoB.click();
 
-        DoB.sendKeys(DOB + Keys.ENTER);
+        DoB.sendKeys(DateOfBirth + Keys.ENTER);
 
-
-    }
-
-    @Step("Select cover amount of R15000 on the slider bar")
-    public void selectCoverAmount()throws InterruptedException{
-        Thread.sleep(5000);
-
-        $(By.xpath(SliderBarXpath)).click();
-
-        WebElement sliderPointer = $(By.xpath("//span[@aria-label='ngx-slider']"));
-        sliderPointer.click();
 
     }
 
@@ -691,173 +672,41 @@ public class LumpSumCover15000 extends PageObject {
 
     }
 
+     @Step("Navigate to Spouse Page")
+     public void navigateSpouse()throws InterruptedException{
+     Thread.sleep(5000);
 
-    @Step("Navigate to Beneficiary Page")
-    public void navigateBeneficiary()throws InterruptedException{
-        Thread.sleep(5000);
+      $(By.xpath(SpouseXpath)).click();
 
-        $(By.xpath(BeneficiaryXpath)).click();
+      WebElement Title = $(By.xpath("//select[@id='Title']"));
+     Title.click();
+      Title.sendKeys("Miss");
 
-    }
+     WebElement Name = $(By.xpath("//input[@id='FirstNames']"));
+     Name.click();
+    Name.sendKeys("Hazel");
 
-    @Step("Click on Add Beneficiary button")
-    public void addBeneficiary(){
+     WebElement Surname = $(By.xpath("//input[@id='Surname']"));
+     Surname.click();
+     Surname.sendKeys("Smith");
 
-        $(By.xpath(AddBenXpath)).click();
+    WebElement dropdown = $(By.xpath("//select[@id='Gender']"));
+     Select selectObject = new Select(dropdown);
+     selectObject.selectByValue("Female");
 
-    }
+    WebElement ID = $(By.xpath("//input[@id='IdentityNumber']"));
+     ID.click();
+    ID.sendKeys("9806030395181");
 
-    @Step("Select Member Estate from Relationship dropdown")
-    public void selectRelation(String Relationship){
-        WebElement dropdown = $(By.xpath(RelationXpath));
-        Select selectObject = new Select(dropdown);
+    WebElement saveSpouse = $(By.xpath("//span[@class='title']"));
+     saveSpouse.click();
+    Thread.sleep(3000);
 
-        selectObject.selectByValue(Relationship);
-    }
-
-    @Step("Click Save Beneficiary Button")
-    public void saveBeneficiary()throws InterruptedException {
-
-        $(By.xpath(SaveBenXpath)).click();
-        Thread.sleep(5000);
-
-        WebElement PopUp = $(By.xpath("//button[@type='button']"));
-        PopUp.click();
-
-    }
-
-    @Step("Navigate to FICA Page")
-    public void navigateFICA()throws  InterruptedException{
-        Thread.sleep(5000);
-
-        $(By.xpath(FICAXpath)).click();
-
-        WebElement isProminentPublicOfficial = $(By.xpath("//select[@id='IsProminentPublicOfficial']"));
-        Select selectObject = new Select(isProminentPublicOfficial);
-        selectObject.selectByValue("No");
-
-        WebElement isProminentInternationalPublicOfficial = $(By.xpath("//select[@id='IsProminentInternationalPublicOfficial']"));
-        Select selectObject1 = new Select(isProminentInternationalPublicOfficial);
-        selectObject1.selectByValue("No");
-
-        $(By.xpath("//span[@class='title']")).click();
-
-    }
-
-    @Step("Navigate to Premium Page")
-    public void navigatePremium()throws InterruptedException{
-        Thread.sleep(5000);
-
-        $(By.xpath(PremiumXpath)).click();
-        WebElement dropdown = $(By.xpath("//select[@id='productConversion']"));
-        Select selectObject = new Select(dropdown);
-        selectObject.getAllSelectedOptions();
-
-        String targetPointXpath = "//span[@aria-label='ngx-slider']";
-        WebElement targetPoint = $(By.xpath(targetPointXpath));
-        targetPoint.click();
-
-        WebElement savePremium = $(By.xpath("//span[@class='title']"));
-        savePremium.click();
-
-    }
-
-    @Step("Navigate to Rewards Page")
-    public void navigateRewards()throws InterruptedException{
-        Thread.sleep(5000);
-
-        $(By.xpath(RewardsXpath)).click();
-
-        WebElement checkbox = $(By.xpath("(//input[@type='checkbox'])[1]"));
-
-        if (!checkbox.isSelected()) {
-            checkbox.click();
-        }
-
-        WebElement savePremium = $(By.xpath("//span[@class='title']"));
-        savePremium.click();
-
-    }
-
-    @Step("Navigate to Summary Page")
-    public void navigateSummary()throws InterruptedException{
-        Thread.sleep(5000);
-
-        $(By.xpath(SummaryXpath)).click();
+     WebElement saveSpouse1 = $(By.xpath("//button[@class='btn btn-success']"));
+     saveSpouse1.click();
 
 
-        WebElement checkbox = $(By.xpath("(//input[@type='checkbox'])[1]"));
-
-        if (!checkbox.isSelected()) {
-            checkbox.click();
-        }
-
-        WebElement checkbox1 = $(By.xpath("(//input[@type='checkbox'])[2]"));
-
-        if (!checkbox1.isSelected()) {
-            checkbox1.click();
-        }
-
-        WebElement checkbox2 = $(By.xpath("(//input[@type='checkbox'])[3]"));
-
-        if (!checkbox2.isSelected()) {
-            checkbox2.click();
-        }
-
-        WebElement checkbox3 = $(By.xpath("(//input[@type='checkbox'])[4]"));
-
-        if (!checkbox3.isSelected()) {
-            checkbox3.click();
-        }
-
-        WebElement checkbox4 = $(By.xpath("(//input[@type='checkbox'])[5]"));
-
-        if (!checkbox4.isSelected()) {
-            checkbox4.click();
-        }
-
-        WebElement checkbox5 = $(By.xpath("(//input[@type='checkbox'])[6]"));
-
-        if (!checkbox5.isSelected()) {
-            checkbox5.click();
-        }
-
-        WebElement concludeSale = $(By.xpath("//button[@type='button']"));
-        concludeSale.click();
-
-        WebElement concludePopUp = $(By.xpath("//button[contains(text(),'Conclude Sale')]"));
-        concludePopUp.click();
-
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
-        wait.until(ExpectedConditions.stalenessOf(concludePopUp));
-
-    }
-
-    @Step("Debi-check page")
-    public void debiCheck()throws InterruptedException{
-        Thread.sleep(7000);
+     }
 
 
-        $(By.xpath(ConfirmDebiCheckXpath)).click();
-        Thread.sleep(2000);
-
-
-        $(By.xpath("//span[@class='title'][1]")).click();
-
-
-
-
-
-    }
-
-    @Step("View summary table page")
-    public void summaryTable()throws InterruptedException{
-        WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(10));
-
-       WebElement bootstrap = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(SummaryTableXpath)));
-        bootstrap.click();
-
-       getDriver().wait(60000);
-
-    }
 }
