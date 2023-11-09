@@ -28,7 +28,7 @@ public class LumpSumCover15000Step extends PageObject {
     @When("user Select the plan option: Individual or member and family")
     public void user_select_the_plan_option_individual_or_member_and_family() throws InterruptedException {
         lumpSumCover15000.HelpIconButton();
-        lumpSumCover15000.SelectPlanTextDropdown("YA");
+        lumpSumCover15000.SelectPlanTextDropdown("YF");
         lumpSumCover15000.SelectPlanOkBtn();
 
     }
@@ -36,7 +36,7 @@ public class LumpSumCover15000Step extends PageObject {
     public void user_select_the_date_of_birth_of_the_main_life_assured() throws InterruptedException {
         lumpSumCover15000.GetRatesBtn();
         lumpSumCover15000.SelectPlanOption();
-        lumpSumCover15000.SelectDoB("2022-06-03");
+        lumpSumCover15000.SelectDoB("1961-06-03");
 
     }
     @When("user On the slider select the cover amounts that are applicable to the plan chosen")
@@ -51,8 +51,8 @@ public class LumpSumCover15000Step extends PageObject {
         lumpSumCover15000.EnterSurname("Mills");
         lumpSumCover15000.selectSACitizen("Yes");
         lumpSumCover15000.clickTextBox();
-        lumpSumCover15000.enterID("2206038569084");
-        lumpSumCover15000.confirmID("2206038569084");
+        lumpSumCover15000.enterID("6106037505186");
+        lumpSumCover15000.confirmID("6106037505186");
         lumpSumCover15000.clickOKButton();
         lumpSumCover15000.EnterDoB("2022-06-03");
         lumpSumCover15000.selectMonthlyIncome("Up to 3,000");
