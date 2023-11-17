@@ -1,4 +1,4 @@
-package PageObjects.FamilyCover;
+package PageObjects.FamilyCover.HELP;
 
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
@@ -11,7 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class FamilyCover5000 extends PageObject {
+public class FamilyCover10000 extends PageObject {
+
 
     String Url = "https://shambawebtest.clientele.co.za/shambaweb/";
 
@@ -319,6 +320,17 @@ public class FamilyCover5000 extends PageObject {
 
         DoB.sendKeys(DateOfBirth + Keys.ENTER);
 
+
+    }
+
+    @Step("Select cover amount of R10000 on the slider bar")
+    public void selectCoverAmount()throws InterruptedException{
+        Thread.sleep(5000);
+
+        $(By.xpath(SliderBarXpath)).click();
+
+        WebElement sliderPointer = $(By.xpath("//span[@aria-label='ngx-slider']"));
+        sliderPointer.click();
 
     }
 
@@ -700,11 +712,11 @@ public class FamilyCover5000 extends PageObject {
 
     }
 
-     @Step("Navigate to Spouse Page")
+    @Step("Navigate to Spouse Page")
     public void navigateSpouse()throws InterruptedException{
-    Thread.sleep(5000);
+        Thread.sleep(5000);
 
-    $(By.xpath(SpouseXpath)).click();
+        $(By.xpath(SpouseXpath)).click();
 
     }
 
@@ -754,61 +766,60 @@ public class FamilyCover5000 extends PageObject {
     }
 
     @Step("Navigate to Child Page")
-     public void navigateChild()throws InterruptedException{
+    public void navigateChild()throws InterruptedException{
         Thread.sleep(5000);
 
-    $(By.xpath(ChildXpath)).click();
+        $(By.xpath(ChildXpath)).click();
 
-     }
+    }
 
-     @Step("Click on Tab-Content")
-     public void clickTab(){
-         $(By.xpath("//*[@id=\"pills-tabContent\"]/child/div/div/div/div/div/div[2]/button")).click();
+    @Step("Click on Tab-Content")
+    public void clickTab(){
+        $(By.xpath("//*[@id=\"pills-tabContent\"]/child/div/div/div/div/div/div[2]/button")).click();
 
-     }
+    }
 
-     @Step("Enter Child Name")
-     public void enterChildName(String name){
-         WebElement Name = $(By.xpath("//input[@id='FirstNames']"));
-         Name.click();
-         Name.sendKeys(name);
+    @Step("Enter Child Name")
+    public void enterChildName(String name){
+        WebElement Name = $(By.xpath("//input[@id='FirstNames']"));
+        Name.click();
+        Name.sendKeys(name);
 
-     }
+    }
 
-     @Step("Enter Child Surname")
-     public void enterChildSurname(String surname){
-         WebElement Surname = $(By.xpath("//input[@id='Surname']"));
-         Surname.click();
-         Surname.sendKeys(surname);
+    @Step("Enter Child Surname")
+    public void enterChildSurname(String surname){
+        WebElement Surname = $(By.xpath("//input[@id='Surname']"));
+        Surname.click();
+        Surname.sendKeys(surname);
 
-     }
+    }
 
-     @Step("Enter Child Gender")
-     public void selectGender(String Gender){
-         WebElement gender = $(By.xpath("//select[@id='Gender']"));
-         Select selectObject = new Select(gender);
-         selectObject.selectByValue(Gender);
+    @Step("Enter Child Gender")
+    public void selectGender(String Gender){
+        WebElement gender = $(By.xpath("//select[@id='Gender']"));
+        Select selectObject = new Select(gender);
+        selectObject.selectByValue(Gender);
 
-     }
+    }
 
-     @Step("Enter Child Identity Number")
-     public void enterChildID(String IDNumber){
-         WebElement ID = $(By.xpath("//input[@id='IdentityNumber']"));
-         ID.click();
-         ID.sendKeys(IDNumber);
+    @Step("Enter Child Identity Number")
+    public void enterChildID(String IDNumber){
+        WebElement ID = $(By.xpath("//input[@id='IdentityNumber']"));
+        ID.click();
+        ID.sendKeys(IDNumber);
 
-     }
+    }
 
-     @Step("Select Child if is student")
-     public void ChildIsStudent(String Student){
-         WebElement dropdown1 = $(By.xpath("//select[@id='IsStudent']"));
-         Select selectObject1 = new Select(dropdown1);
-         selectObject1.selectByValue(Student);
+    @Step("Select Child if is student")
+    public void ChildIsStudent(String Student){
+        WebElement dropdown1 = $(By.xpath("//select[@id='IsStudent']"));
+        Select selectObject1 = new Select(dropdown1);
+        selectObject1.selectByValue(Student);
 
-         WebElement saveChild = $(By.xpath("//span[normalize-space()='Save Child']"));
-         saveChild.click();
-     }
-
+        WebElement saveChild = $(By.xpath("//span[normalize-space()='Save Child']"));
+        saveChild.click();
+    }
 
 
     @Step("Navigate to Beneficiary Page")
@@ -974,8 +985,6 @@ public class FamilyCover5000 extends PageObject {
 
         WebElement bootstrap = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(SummaryTableXpath)));
         bootstrap.click();
-
-
 
     }
 }

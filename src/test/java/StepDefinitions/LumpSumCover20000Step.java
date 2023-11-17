@@ -1,6 +1,6 @@
 package StepDefinitions;
 
-import PageObjects.IndividualCover.LumpSumCover20000;
+import PageObjects.IndividualCover.HELP.LumpSumCover20000;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

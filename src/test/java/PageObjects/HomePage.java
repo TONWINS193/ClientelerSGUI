@@ -2,7 +2,6 @@ package PageObjects;
 
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.screenplay.waits.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,16 +11,20 @@ import java.time.Duration;
 
 public class HomePage extends PageObject {
 
-    String Url = "https://shambawebtest.clientele.co.za/shambaweb/home";
+    String Url = "https://shambawebtest.clientele.co.za/shambaweb/";
 
-    String LoginBtn = "//*[@id=\"navbarSupportedContent\"]/div/div/button/span";
-    String UserName = "//*[@id=\"i0116\"]";
+    String ArrowButtonXpath = "//i[@class='bi bi-box-arrow-right profile-icon profile-icon-default']";
 
-    String NextBtn = "//*[@id=\"idSIButton9\"]";
+    String UserName = "//input[@placeholder='Username']";
 
-    String Password = "//*[@id=\"i0118\"]";
+    String PasswordXpath = "//input[@placeholder='Password']";
 
-    String SignIn = "//*[@id=\"idSIButton9\"]";
+    String LoginXpath = "//button[@type='submit']";
+
+
+    String ClienteleLogoXpath = "//img[@class=\"logo-menu\"]";
+
+
 
 
     @Step("Open shamba website")
@@ -31,18 +34,17 @@ public class HomePage extends PageObject {
         Thread.sleep(3000);
     }
 
-    @Step("Clicks on LoginButton")
-    public void LoginButton(){
+    @Step("Clicks on Arrow-Button to log in")
+    public void clickArrowButton(){
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10) );
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ArrowButtonXpath)));
 
-       WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(LoginBtn)));
-
-       element.click();
-
+        element.click();
 
     }
+
     @Step("Enter Username ")
-    public void Username(String Username){
+    public void Username(String username){
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10) );
 
        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(UserName)));
@@ -51,44 +53,41 @@ public class HomePage extends PageObject {
 
        WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(UserName)));
 
-       element1.sendKeys(Username);
+       element1.sendKeys(username);
 
-
-    }
-
-    @Step("Clicks on NextButton")
-    public void NextButton(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10) );
-
-       WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(NextBtn)));
-
-       element.click();
 
     }
 
     @Step("Enter Password")
-    public void Password(String password){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10) );
+    public void PasswordText(String password){
 
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Password)));
 
-        element.click();
+        $(By.xpath(PasswordXpath)).click();
 
-       WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Password)));
 
-       element1.sendKeys(password);
+
+       $(By.xpath(PasswordXpath)).sendKeys(password);
 
 
     }
 
-    @Step("Clicks on SignIn")
-    public void SignIn() throws  InterruptedException{
+    @Step("Clicks on Login")
+    public void LoginButton() throws  InterruptedException{
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10) );
 
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(SignIn)));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(LoginXpath)));
 
         element.click();
+
+    }
+
+    @Step("Clicks on ClienteleLogo")
+    public void ClienteleLogo() throws InterruptedException {
         Thread.sleep(5000);
+
+        $(By.xpath(ClienteleLogoXpath)).click();
+
+
     }
 
 

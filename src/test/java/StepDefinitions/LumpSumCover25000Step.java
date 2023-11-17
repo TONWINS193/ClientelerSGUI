@@ -1,6 +1,6 @@
 package StepDefinitions;
 
-import PageObjects.IndividualCover.LumpSumCover25000;
+import PageObjects.IndividualCover.HELP.LumpSumCover25000;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -36,7 +36,7 @@ public class LumpSumCover25000Step extends PageObject {
     public void user_select_the_date_of_birth_of_the_main_life_assured() throws InterruptedException {
         lumpSumCover25000.GetRatesBtn();
         lumpSumCover25000.SelectPlanOption();
-        lumpSumCover25000.SelectDoB("2022-06-03");
+        lumpSumCover25000.SelectDoB("1961-06-03");
     }
     @When("user on the slider select the premium cover amounts that are applicable to the plan chosen")
     public void user_on_the_slider_select_the_premium_cover_amounts_that_are_applicable_to_the_plan_chosen() throws InterruptedException {
@@ -50,8 +50,8 @@ public class LumpSumCover25000Step extends PageObject {
         lumpSumCover25000.EnterSurname("Mills");
         lumpSumCover25000.selectSACitizen("Yes");
         lumpSumCover25000.clickTextBox();
-        lumpSumCover25000.enterID("2206035072082");
-        lumpSumCover25000.confirmID("2206035072082");
+        lumpSumCover25000.enterID("6106035364081");
+        lumpSumCover25000.confirmID("6106035364081");
         lumpSumCover25000.clickOKButton();
         //lumpSumCover25000.EnterDoB("1962-06-03");
         lumpSumCover25000.selectMonthlyIncome("Up to 3,000");

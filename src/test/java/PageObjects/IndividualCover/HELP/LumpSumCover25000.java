@@ -1,4 +1,4 @@
-package PageObjects.IndividualCover;
+package PageObjects.IndividualCover.HELP;
 
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
@@ -832,11 +832,12 @@ public class LumpSumCover25000 extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
         wait.until(ExpectedConditions.stalenessOf(concludePopUp));
 
+
     }
 
     @Step("Debi-check page")
     public void debiCheck()throws InterruptedException{
-        Thread.sleep(7000);
+        Thread.sleep(13000);
 
 
         $(By.xpath(ConfirmDebiCheckXpath)).click();

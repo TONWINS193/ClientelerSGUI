@@ -4,14 +4,13 @@ Feature: home Page Functionality
     Given  user opens the URL
 
     Scenario Outline: User is on login page screen
-      When user clicks on login button
+      When user clicks on Arrow Navigation  button
       And user enters "<Username>"
-      And user clicks on next button
-       Then user Input "<Password>"
-      And user clicks on sign-in button
+      Then User enters "<password>"
+      And user clicks on Log-in button
 
 
 
       Examples:
-      | Username               | Password
-      | WRambau@clientele.co.za| clientele003
+      | Username | password     |
+      | WRambau  | clientele003 |
