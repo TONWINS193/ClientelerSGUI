@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/SingleGUI/ClienteleGSD",
+        features = "src/test/resources/features/SingleGUI/ClienteleGSD/ClienteleWealthPlanGSD.feature",
         glue = "StepDefinitions"
 )
 

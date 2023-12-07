@@ -29,7 +29,7 @@ public class ClienteleWealthPlan extends PageObject {
 
     String LeadBasketXpath = "/html/body/shamba-root/shamba-layout/div/div[1]/sale-ribbon/div/div/div/div/div/nav/div[1]/a/div/i";
 
-   // String LeadBasketFilterXpath = "(//input[@id='LeasdsBasketFilter'])[2]";
+    String LeadBasketFilterXpath = "(//input[@id='LeasdsBasketFilter'])[2]";
 
     String leadCheckBox = "(//input[@id='undefined'])[1]";
 
@@ -221,12 +221,12 @@ public class ClienteleWealthPlan extends PageObject {
 
     }
 
-   // @Step("Select New on lead basket filter ")
-   // public void selectNew()throws InterruptedException{
-       // Thread.sleep(2000);
+    @Step("Select New on lead basket filter ")
+    public void selectNew()throws InterruptedException{
+       Thread.sleep(2000);
 
-      //  $(By.xpath(LeadBasketFilterXpath)).click();
-   // }
+       $(By.xpath(LeadBasketFilterXpath)).click();
+    }
 
     @Step("Select a lead to action a sale")
     public void LeadCheckBox() throws InterruptedException {
@@ -633,7 +633,7 @@ public class ClienteleWealthPlan extends PageObject {
         Select selectObject = new Select(dropdown);
 
         selectObject.selectByValue(PayerIsEmployee);
-        Thread.sleep(180000);
+
 
     }
 

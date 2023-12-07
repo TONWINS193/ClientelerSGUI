@@ -40,6 +40,7 @@ public class FamilyCover20000Step extends PageObject {
     }
     @When("User Select the Plan option:Member and family By selecting, {string}")
     public void user_select_the_plan_option_member_and_family_by_selecting(String string) throws InterruptedException {
+        familyCover20000.selectCoverAmount();
         familyCover20000.GetRatesBtn();
         familyCover20000.SelectPlanOption(string);
 

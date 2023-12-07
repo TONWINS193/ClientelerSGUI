@@ -24,7 +24,7 @@ public class ClienteleWealthPlanStep extends PageObject {
         clienteleWealthPlan.ClienteleLogo();
         clienteleWealthPlan.CaptureSale();
         clienteleWealthPlan.LeadBasket();
-       // clienteleWealthPlan.selectNew();
+        clienteleWealthPlan.selectNew();
         clienteleWealthPlan.LeadCheckBox();
         clienteleWealthPlan.ActionSaleButton();
 

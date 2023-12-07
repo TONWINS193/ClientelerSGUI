@@ -48,6 +48,7 @@ public class LumpSumCover15000Step extends PageObject {
     }
     @When("User on the Slider select the cover amounts that are applicable to the plan chosen")
     public void user_on_the_slider_select_the_cover_amounts_that_are_applicable_to_the_plan_chosen() throws InterruptedException {
+        lumpSumCover15000.selectCoverAmount();
         lumpSumCover15000.ViewRates();
         lumpSumCover15000.StartSale();
         lumpSumCover15000.handleModelPopUp();

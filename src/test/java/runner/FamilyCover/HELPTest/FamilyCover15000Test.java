@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/SingleGUI/FamilyCover.HELP",
+        features = "src/test/resources/features/SingleGUI/FamilyCover.HELP/FamilyCover15000.feature",
         glue = "StepDefinitions"
 )
 

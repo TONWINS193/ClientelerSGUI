@@ -25,7 +25,7 @@ public class ClienteleWealthPlanGSDStep extends PageObject {
         clienteleWealthPlanGSD.ClienteleLogo();
         clienteleWealthPlanGSD.CaptureSale();
         clienteleWealthPlanGSD.LeadBasket();
-        // clienteleWealthPlan.selectNew();
+        clienteleWealthPlanGSD.selectNew();
         clienteleWealthPlanGSD.LeadCheckBox();
         clienteleWealthPlanGSD.ActionSaleButton();
 
@@ -61,8 +61,8 @@ public class ClienteleWealthPlanGSDStep extends PageObject {
         clienteleWealthPlanGSD.clickSaveMMBtn();
 
     }
-    @Then("User Add payer details By Capturing, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void user_add_payer_details_by_capturing(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13, String string14, String string15) throws InterruptedException {
+    @Then("User Add payer details By Capturing, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void user_add_payer_details_by_capturing(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13) throws InterruptedException {
         clienteleWealthPlanGSD.navigatePayer();
         clienteleWealthPlanGSD.selectTittle(string);
         clienteleWealthPlanGSD.enterName(string2);
@@ -72,22 +72,22 @@ public class ClienteleWealthPlanGSDStep extends PageObject {
         clienteleWealthPlanGSD.confirmationID(string5);
         clienteleWealthPlanGSD.clickOK();
         clienteleWealthPlanGSD.PayerRelation(string6);
-        clienteleWealthPlanGSD.selectDebit(string7);
-        clienteleWealthPlanGSD.selectDebiDate(string8);
-        clienteleWealthPlanGSD.selectBank(string9);
-        clienteleWealthPlanGSD.selectBranch(string10);
-        clienteleWealthPlanGSD.selectAccType(string11);
+        clienteleWealthPlanGSD.selectBank(string7);
+        clienteleWealthPlanGSD.selectBranch(string8);
+        clienteleWealthPlanGSD.selectAccType(string9);
         clienteleWealthPlanGSD.enterAccNum();
-        clienteleWealthPlanGSD.enterMainAcc(string12);
-        clienteleWealthPlanGSD.confirmAccount(string13);
+        clienteleWealthPlanGSD.enterMainAcc(string10);
+        clienteleWealthPlanGSD.confirmAccount(string11);
         clienteleWealthPlanGSD.OKButton();
-        clienteleWealthPlanGSD.enterMobiNum(string14);
-        clienteleWealthPlanGSD.isEmployee(string15);
+        clienteleWealthPlanGSD.enterMobiNum(string12);
+        clienteleWealthPlanGSD.isEmployee(string13);
 
     }
-    @When("user add Government details if selected yes, {string}, {string}, {string}")
-    public void user_add_government_details_if_selected_yes(String string, String string2, String string3) throws InterruptedException {
+    @When("user add Government details if selected yes, {string}, {string}, {string}, {string}, {string}")
+    public void user_add_government_details_if_selected_yes(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
         clienteleWealthPlanGSD.addGSD(string, string2, string3);
+        clienteleWealthPlanGSD.selectDebit(string4);
+        clienteleWealthPlanGSD.selectDebiDate(string5);
         clienteleWealthPlanGSD.confCheckBoxes();
         clienteleWealthPlanGSD.clickSaveBtn();
 
@@ -106,9 +106,10 @@ public class ClienteleWealthPlanGSDStep extends PageObject {
     public void user_proceed_with_the_cover_and_conclude_sale() throws InterruptedException {
         clienteleWealthPlanGSD.navigateRewards();
         clienteleWealthPlanGSD.navigateSummary();
-        clienteleWealthPlanGSD.debiCheck();
+        clienteleWealthPlanGSD.PopUPCheckboxes();
         clienteleWealthPlanGSD.summaryTable();
 
     }
+
 
 }

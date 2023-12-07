@@ -29,7 +29,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
 
     String LeadBasketXpath = "/html/body/shamba-root/shamba-layout/div/div[1]/sale-ribbon/div/div/div/div/div/nav/div[1]/a/div/i";
 
-    // String LeadBasketFilterXpath = "(//input[@id='LeasdsBasketFilter'])[2]";
+     String LeadBasketFilterXpath = "(//input[@id='LeasdsBasketFilter'])[2]";
 
     String leadCheckBox = "(//input[@id='undefined'])[1]";
 
@@ -197,7 +197,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
 
     @Step("Clicks on ClienteleLogo")
     public void ClienteleLogo() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(3000);
 
         $(By.xpath(ClienteleLogoXpath)).click();
 
@@ -206,7 +206,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
 
     @Step("Clicks on CaptureSale")
     public void CaptureSale() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(3000);
 
         $(By.xpath(CaptureSaleXpath)).click();
 
@@ -215,22 +215,22 @@ public class ClienteleWealthPlanGSD extends PageObject {
 
     @Step("Clicks on LeadBasket")
     public void LeadBasket() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
         $(By.xpath(LeadBasketXpath)).click();
 
     }
 
-    // @Step("Select New on lead basket filter ")
-    // public void selectNew()throws InterruptedException{
-    // Thread.sleep(2000);
+    @Step("Select New on lead basket filter ")
+    public void selectNew()throws InterruptedException{
+     Thread.sleep(2000);
 
-    //  $(By.xpath(LeadBasketFilterXpath)).click();
-    // }
+      $(By.xpath(LeadBasketFilterXpath)).click();
+    }
 
     @Step("Select a lead to action a sale")
     public void LeadCheckBox() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(3000);
 
         WebElement checkbox = $(By.xpath(leadCheckBox));
 
@@ -243,7 +243,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
 
     @Step("Click on Action sale Button")
     public void ActionSaleButton() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(3000);
 
         WebElement startSale = $(By.xpath(ActionSaleBtn));
 
@@ -261,7 +261,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
 
     @Step("Click on Select Plan Text Dropdown and select Life Plan")
     public void SelectPlanTextDropdown(String SelectPlan) throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
         WebElement dropdown = $(By.xpath(PlanTypeDropdown));
         Select selectObject = new Select(dropdown);
@@ -272,7 +272,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
 
     @Step("Click on Ok Button to proceed")
     public void SelectPlanOkBtn() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(3000);
 
         $(By.xpath(SelectPlanOkBtn)).click();
 
@@ -280,7 +280,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
 
     @Step("Click on Get Rates Button")
     public void GetRatesBtn() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
         $(By.xpath(GetRatesBtn)).click();
     }
@@ -288,7 +288,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
     @Step("Click Continue on PopUp StartSale")
     public void StartSalePopUp (){
 
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
 
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(StartSalePopUpXpath)));
 
@@ -298,7 +298,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
 
     @Step("Click continue or cancel button on FAIS Disclosure PopUp Link")
     public void handleModelPopUp(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
 
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(FAISXpath)));
 
@@ -343,7 +343,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
 
     @Step("Click on ID text box")
     public void clickTextBox(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
         WebElement fieldText = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(IDNumberXpath)));
         fieldText.click();
 
@@ -353,7 +353,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
 
     @Step("Click on ID Number MainInput PopUp ")
     public void enterID(String IDNumber){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
 
         WebElement  mainIDPopUP = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(MainInputID)));
         mainIDPopUP.click();
@@ -393,7 +393,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
         WebElement dropdown = $(By.xpath(MonthlyIncomeXpath));
         Select selectObject = new Select(dropdown);
 
-        selectObject.selectByValue(MonthlyIncome);
+        selectObject.selectByVisibleText(MonthlyIncome);
 
     }
 
@@ -512,7 +512,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
 
     @Step("Enter ID on MainInput PopUp")
     public void mainIDPopUp(String PayerID){
-        WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(5));
 
         WebElement mainID = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(MainIDXpath)));
         mainID.click();
@@ -522,7 +522,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
 
     @Step("Enter Confirmation of ID on PopUp field text")
     public void confirmationID(String PayerID){
-        WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(5));
 
         WebElement confirmID = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ConfirmIDXpath)));
         confirmID.click();
@@ -531,7 +531,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
 
     @Step("Click  OK button to capture ID")
     public void clickOK()throws InterruptedException{
-        Thread.sleep(5000);
+        Thread.sleep(3000);
 
         $(By.xpath(OKPopUpXpath)).click();
     }
@@ -544,28 +544,14 @@ public class ClienteleWealthPlanGSD extends PageObject {
         selectObject.selectByValue(Relationship);
     }
 
-    @Step("Select Debit day from dropdown list")
-    public void selectDebit(String DebitDay){
-        WebElement dropdown = $(By.xpath(PayerDebitXpath));
-        Select selectObject = new Select(dropdown);
 
-        selectObject.selectByValue(DebitDay);
-    }
-
-    @Step("Select Debit date from dropdown list")
-    public void selectDebiDate(String DebitDate){
-        WebElement dropdown = $(By.xpath(FirstDebitXpath));
-        Select selectObject = new Select(dropdown);
-
-        selectObject.selectByValue(DebitDate);
-    }
 
     @Step("Select Bank Name from dropdown list")
     public void selectBank(String BankName){
         WebElement dropdown = $(By.xpath(BankNameXpath));
         Select selectObject = new Select(dropdown);
 
-        selectObject.selectByValue(BankName);
+        selectObject.selectByVisibleText(BankName);
     }
 
     @Step("Select Branch Code from dropdown ")
@@ -573,7 +559,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
         WebElement dropdown = $(By.xpath(BranchCodeXpath));
         Select selectObject = new Select(dropdown);
 
-        selectObject.selectByValue(BranchCode);
+        selectObject.selectByVisibleText(BranchCode);
 
     }
 
@@ -582,7 +568,7 @@ public class ClienteleWealthPlanGSD extends PageObject {
         WebElement dropdown = $(By.xpath(AcctTypeXpath));
         Select selectObject = new Select(dropdown);
 
-        selectObject.selectByValue(AccountType);
+        selectObject.selectByVisibleText(AccountType);
 
     }
 
@@ -653,6 +639,23 @@ public class ClienteleWealthPlanGSD extends PageObject {
         Select selectObject3 = new Select(dropdown3);
 
         selectObject3.selectByVisibleText(select1);
+    }
+
+
+    @Step("Select Debit day from dropdown list")
+    public void selectDebit(String DebitDay){
+        WebElement dropdown = $(By.xpath(PayerDebitXpath));
+        Select selectObject = new Select(dropdown);
+
+        selectObject.selectByVisibleText(DebitDay);
+    }
+
+    @Step("Select Debit date from dropdown list")
+    public void selectDebiDate(String DebitDate){
+        WebElement dropdown = $(By.xpath(FirstDebitXpath));
+        Select selectObject = new Select(dropdown);
+
+        selectObject.selectByVisibleText(DebitDate);
     }
 
     @Step("Select All checkboxes for confirmations of a Payer ")
@@ -812,30 +815,67 @@ public class ClienteleWealthPlanGSD extends PageObject {
         WebElement concludeSale = $(By.xpath("//button[@type='button']"));
         concludeSale.click();
 
+
         WebElement concludePopUp = $(By.xpath("//button[contains(text(),'Conclude Sale')]"));
         concludePopUp.click();
 
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
         wait.until(ExpectedConditions.stalenessOf(concludePopUp));
 
-    }
-
-    @Step("Debi-check page")
-    public void debiCheck()throws InterruptedException{
-        Thread.sleep(7000);
-
-
-        $(By.xpath(ConfirmDebiCheckXpath)).click();
-        Thread.sleep(2000);
-
-
-        $(By.xpath("//span[@class='title'][1]")).click();
-
-
-
-
 
     }
+
+    @Step("Select Government Questions Pop-UP Checkboxes")
+    public void PopUPCheckboxes(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+
+        WebElement GovernmentQ1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"bootstrap-table\"]/tbody/tr[1]/td[3]/input"))) ;
+        GovernmentQ1.click();
+
+
+
+        WebElement GovernmentQ2 = $(By.xpath("(//input[@type='checkbox'])[2]"));
+
+        if(!GovernmentQ2.isSelected()){
+            GovernmentQ2.click();
+        }
+
+        WebElement GovernmentQ3 = $(By.xpath("(//input[@type='checkbox'])[3]"));
+
+        if(!GovernmentQ3.isSelected()){
+            GovernmentQ3.click();
+        }
+
+        WebElement GovernmentQ4 = $(By.xpath("(//input[@type='checkbox'])[4]"));
+
+        if(!GovernmentQ4.isSelected()){
+            GovernmentQ4.click();
+        }
+
+        WebElement GovernmentQ5 = $(By.xpath("(//input[@type='checkbox'])[5]"));
+
+        if(!GovernmentQ5.isSelected()){
+            GovernmentQ5.click();
+        }
+
+        WebElement GovernmentQ6 = $(By.xpath("//*[@id=\"bootstrap-table\"]/tbody/tr[6]/td[3]/input"));
+
+        if(!GovernmentQ6.isSelected()){
+            GovernmentQ6.click();
+        }
+
+        WebElement GovernmentQ7 = $(By.xpath("//*[@id=\"bootstrap-table\"]/tbody/tr[7]/td[3]/input"));
+
+        if(!GovernmentQ7.isSelected()){
+            GovernmentQ7.click();
+        }
+
+        WebElement saveButton = $(By.xpath("//button[normalize-space()='Save']"));
+        saveButton.click();
+    }
+
+
+
 
     @Step("View summary table page")
     public void summaryTable()throws InterruptedException {

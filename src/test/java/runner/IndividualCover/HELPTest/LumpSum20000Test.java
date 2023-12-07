@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/SingleGUI/IndividualCover.HELP",
+        features = "src/test/resources/features/SingleGUI/IndividualCover.HELP/LumpSumCover20000.feature",
         glue = "StepDefinitions"
 
 )
