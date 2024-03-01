@@ -4,7 +4,7 @@ Feature:Clientele accident plus health event life plan Functionality
     Given User log in SGUI Website
 
   Scenario Outline: User capture Individual sale for lump sum cover(GSD) of R25000 for different age
-    When User log in with Valid Credentials by Entering, "<Username>", "<Password>"
+    When User log in with Valid Credentials by Entering
     Then User select Plan Cover on Dropdown Text List, "<CoverPlan>"
     When user Select the Plan Option:Member and Family by Selecting, "<PlanOption>"
     Then User select the Date of Birth of the Main life Assured, "<MemberDOB>"
@@ -17,5 +17,5 @@ Feature:Clientele accident plus health event life plan Functionality
 
 
     Examples:
-      | Username | Password       | CoverPlan | PlanOption | MemberDOB | MemberTitle   | MemberName | MemberSurname | MemberCitizenShip | MemberID      | ConfirmID     | MonthlyIncome | Occupation         | Education | CellNumber | PostalAddress    | PostalCode | PayerTitle | PayerName | PayerSurname | PayerID       | ConfirmPayerID | PayerRelation | DebitDay | DebitDate   | BankName         | BranchCode | AccountType     | AccountNumber | ConfirmAccount | MobileNumber | IsPayerEmployee | EmployeeNumber|          Department                 | Authorised | BeneficiaryRelation | IsProminentPublicOfficial | IsProminentInternationalPublicOfficial |
-      | spadayachy  | Marvel_2023 | YA        | Individual | 1993-06-03|     Mr        | Shade      | Mills         |       Yes         | 9306038542082 | 9306038542082 | Up to 3,000   | Sales and services | Matric    | 0601234231 | Plot 30 ward 55  | 1234       |Miss        | Joy       | McGregor     | 9606035120182 | 9606035120182  | Sister        |    1     | 01 Dec 2023 | CAPITEC BANK LTD | 470010     | Savings Account | 1234          | 1234           | 0601234230   |       Yes        |  55964877     | Western Cape Health |    Yes     | Member Estate       |         Yes               |           No                           |
+     | CoverPlan | PlanOption | MemberDOB | MemberTitle   | MemberName | MemberSurname | MemberCitizenShip | MemberID      | ConfirmID     | MonthlyIncome | Occupation         | Education | CellNumber | PostalAddress    | PostalCode | PayerTitle | PayerName | PayerSurname | PayerID       | ConfirmPayerID | PayerRelation | DebitDay | DebitDate   | BankName         | BranchCode | AccountType     | AccountNumber | ConfirmAccount | MobileNumber | IsPayerEmployee | EmployeeNumber|          Department                 | Authorised | BeneficiaryRelation | IsProminentPublicOfficial | IsProminentInternationalPublicOfficial |
+     | YA        | Individual | 1993-06-03|     Mr        | Shade      | Mills         |       Yes         | 9306038542082 | 9306038542082 | Up to 3,000   | Sales and services | Matric    | 0601234231 | Plot 30 ward 55  | 1234       |Miss        | Joy       | McGregor     | 9606035120182 | 9606035120182  | Sister        |    1     | 01 Dec 2023 | CAPITEC BANK LTD | 470010     | Savings Account | 1234          | 1234           | 0601234230   |       Yes        |  55964877     | Western Cape Health |    Yes     | Member Estate       |         Yes               |           No                           |

@@ -18,10 +18,10 @@ public class ClientelePerksStep extends PageObject {
        clientelePerks.OpenWebsite();
 
     }
-    @When("User Log in with Valid Credentials by Entering, {string}, {string}")
-    public void user_log_in_with_valid_credentials_by_entering(String string, String string2) throws InterruptedException {
+    @When("User Log in with Valid Credentials by Entering")
+    public void user_log_in_with_valid_credentials_by_entering() throws InterruptedException {
         clientelePerks.clickArrowButton();
-        clientelePerks.PopUpLogin(string, string2);
+        clientelePerks.PopUpLogin("WRambau", "TonWins@2024" );
         clientelePerks.LoginButton();
         clientelePerks.ClienteleLogo();
         clientelePerks.CaptureSale();

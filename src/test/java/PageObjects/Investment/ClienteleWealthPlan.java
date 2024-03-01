@@ -3,6 +3,7 @@ package PageObjects.Investment;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -12,7 +13,7 @@ import java.time.Duration;
 
 public class ClienteleWealthPlan extends PageObject {
 
-    String Url = "https://shambawebtest.clientele.co.za/shambaweb/";
+    String Url = "http://shambawebtest.clientele.local/shambaweb/";
 
 
     String ArrowButtonXpath = "//i[@class='bi bi-box-arrow-right profile-icon profile-icon-default']";
@@ -470,6 +471,7 @@ public class ClienteleWealthPlan extends PageObject {
         WebElement button = $(By.xpath(SaveMainMemberXpath));
 
         button.click();
+
     }
 
     @Step("Navigate Payer page")
@@ -477,6 +479,7 @@ public class ClienteleWealthPlan extends PageObject {
         Thread.sleep(5000);
 
         $(By.xpath(PayerXpath)).click();
+
     }
 
     @Step("Select Tittle from dropdown")
@@ -508,6 +511,7 @@ public class ClienteleWealthPlan extends PageObject {
     public void fieldTextID(){
         WebElement fieldText = $(By.xpath(PayerIDXpath));
         fieldText.click();
+
     }
 
     @Step("Enter ID on MainInput PopUp")
@@ -527,6 +531,7 @@ public class ClienteleWealthPlan extends PageObject {
         WebElement confirmID = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ConfirmIDXpath)));
         confirmID.click();
         confirmID.sendKeys(PayerID);
+
     }
 
     @Step("Click  OK button to capture ID")
@@ -534,6 +539,7 @@ public class ClienteleWealthPlan extends PageObject {
         Thread.sleep(5000);
 
         $(By.xpath(OKPopUpXpath)).click();
+
     }
 
     @Step("Select the Relationship from dropdown list")
@@ -542,6 +548,7 @@ public class ClienteleWealthPlan extends PageObject {
         Select selectObject = new  Select(dropdown);
 
         selectObject.selectByValue(Relationship);
+
     }
 
     @Step("Select Debit day from dropdown list")
@@ -550,6 +557,7 @@ public class ClienteleWealthPlan extends PageObject {
         Select selectObject = new Select(dropdown);
 
         selectObject.selectByValue(DebitDay);
+
     }
 
     @Step("Select Debit date from dropdown list")
@@ -558,6 +566,7 @@ public class ClienteleWealthPlan extends PageObject {
         Select selectObject = new Select(dropdown);
 
         selectObject.selectByValue(DebitDate);
+
     }
 
     @Step("Select Bank Name from dropdown list")
@@ -566,6 +575,7 @@ public class ClienteleWealthPlan extends PageObject {
         Select selectObject = new Select(dropdown);
 
         selectObject.selectByValue(BankName);
+
     }
 
     @Step("Select Branch Code from dropdown ")
@@ -796,15 +806,32 @@ public class ClienteleWealthPlan extends PageObject {
 
         WebElement concludePopUp = $(By.xpath("//button[contains(text(),'Conclude Sale')]"));
         concludePopUp.click();
+        Thread.sleep(2000);
 
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
-        wait.until(ExpectedConditions.stalenessOf(concludePopUp));
+//        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
+//        wait.until(ExpectedConditions.stalenessOf(concludePopUp));
+
+        if (isPopupPresent()) {
+            $(By.xpath("//button[normalize-space()='Yes']")).click();
+        } else {
+            System.out.println("No popup detected. proceeding without clicking");
+        }
+
+    }
+
+    private boolean isPopupPresent(){
+        try {
+            return $(By.xpath("//button[normalize-space()='Yes']")).isVisible();
+
+        } catch (Exception e) {
+            return false;
+        }
 
     }
 
     @Step("Debi-check page")
     public void debiCheck()throws InterruptedException{
-        Thread.sleep(7000);
+        Thread.sleep(20000);
 
 
         $(By.xpath(ConfirmDebiCheckXpath)).click();

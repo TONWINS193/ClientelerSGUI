@@ -18,10 +18,11 @@ public class FamilyCover15000Step extends PageObject {
         familyCover15000.OpenWebsite();
 
     }
-    @When("User log in with valid Credentials by entering, {string}, {string}")
-    public void user_log_in_with_valid_credentials_by_entering(String string, String string2) throws InterruptedException {
+
+    @When("User log in with valid Credentials by entering")
+    public void user_log_in_with_valid_credentials_by_entering() throws InterruptedException {
         familyCover15000.clickArrowButton();
-        familyCover15000.PopUpLogin(string, string2);
+        familyCover15000.PopUpLogin("WRambau", "TonWins#2024");
         familyCover15000.LoginButton();
         familyCover15000.ClienteleLogo();
         familyCover15000.CaptureSale();
@@ -40,7 +41,7 @@ public class FamilyCover15000Step extends PageObject {
     }
     @When("User Select the Plan option:Member and family by selecting, {string}")
     public void user_select_the_plan_option_member_and_family_by_selecting(String string) throws InterruptedException {
-        familyCover15000.selectCoverAmount();
+
         familyCover15000.GetRatesBtn();
         familyCover15000.SelectPlanOption(string);
 

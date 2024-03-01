@@ -4,6 +4,7 @@ import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -14,7 +15,7 @@ import java.time.Duration;
 public class FamilyCover10000 extends PageObject {
 
 
-    String Url = "https://shambawebtest.clientele.co.za/shambaweb/";
+    String Url = "http://shambawebtest.clientele.local/shambaweb/";
 
 
     String ArrowButtonXpath = "//i[@class='bi bi-box-arrow-right profile-icon profile-icon-default']";
@@ -43,7 +44,7 @@ public class FamilyCover10000 extends PageObject {
 
     String SelectPlanOkBtn = "//button[@class=\"btn btn-success\"]";
 
-    String GetRatesBtn = "//button[@class='mat-focus-indicator mat-flat-button mat-button-base mat-primary']";
+    String GetRatesBtn = "(//button[@class='mat-focus-indicator mat-flat-button mat-button-base mat-primary'])[1]";
 
     String PlanOptionXpath = "//select[@formcontrolname=\"planOption\"]";
     String MainLifeDoB = "//input[@type='text']";
@@ -171,14 +172,14 @@ public class FamilyCover10000 extends PageObject {
     public void OpenWebsite() throws InterruptedException {
         getDriver().get(Url);
         getDriver().manage().window().maximize();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
 
     }
 
 
     @Step("Clicks on Arrow-Button to log in")
     public void clickArrowButton(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10) );
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(2) );
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ArrowButtonXpath)));
 
         element.click();
@@ -188,7 +189,7 @@ public class FamilyCover10000 extends PageObject {
 
     @Step("Login in using valid Credentials")
     public void PopUpLogin(String Username, String Password) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(2));
 
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(UserName))).click();
@@ -209,7 +210,7 @@ public class FamilyCover10000 extends PageObject {
 
     @Step("Clicks on ClienteleLogo")
     public void ClienteleLogo() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(500);
 
         $(By.xpath(ClienteleLogoXpath)).click();
 
@@ -218,7 +219,7 @@ public class FamilyCover10000 extends PageObject {
 
     @Step("Clicks on CaptureSale")
     public void CaptureSale() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(500);
 
         $(By.xpath(CaptureSaleXpath)).click();
 
@@ -227,7 +228,7 @@ public class FamilyCover10000 extends PageObject {
 
     @Step("Clicks on LeadBasket")
     public void LeadBasket() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(500);
 
         $(By.xpath(LeadBasketXpath)).click();
 
@@ -235,14 +236,14 @@ public class FamilyCover10000 extends PageObject {
 
     @Step("Select New on lead basket filter ")
     public void selectNew()throws InterruptedException{
-        Thread.sleep(2000);
+        Thread.sleep(500);
 
         $(By.xpath(LeadBasketFilterXpath)).click();
     }
 
     @Step("Select a lead to action a sale")
     public void LeadCheckBox() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(500);
 
         WebElement checkbox = $(By.xpath(leadCheckBox));
 
@@ -255,7 +256,7 @@ public class FamilyCover10000 extends PageObject {
 
     @Step("Click on Action sale Button")
     public void ActionSaleButton() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(500);
 
         WebElement startSale = $(By.xpath(ActionSaleBtn));
 
@@ -267,14 +268,14 @@ public class FamilyCover10000 extends PageObject {
 
     @Step("Click on Help Icon Button")
     public void HelpIconButton() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(500);
 
         $(By.xpath(HELPProductXpath)).click();
     }
 
     @Step("Click on Select Plan Text Dropdown and select Life Plan")
     public void SelectPlanTextDropdown(String SelectPlan) throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
         WebElement dropdown = $(By.xpath(PlanTypeDropdown));
         Select selectObject = new Select(dropdown);
@@ -285,7 +286,7 @@ public class FamilyCover10000 extends PageObject {
 
     @Step("Click on Ok Button to proceed")
     public void SelectPlanOkBtn() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
         $(By.xpath(SelectPlanOkBtn)).click();
 
@@ -297,6 +298,7 @@ public class FamilyCover10000 extends PageObject {
 
         $(By.xpath(GetRatesBtn)).click();
     }
+
 
 
     @Step("Click on Plan Option and select Cover")
@@ -957,9 +959,25 @@ public class FamilyCover10000 extends PageObject {
 
         WebElement concludePopUp = $(By.xpath("//button[contains(text(),'Conclude Sale')]"));
         concludePopUp.click();
+        Thread.sleep(10000);
 
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
         wait.until(ExpectedConditions.stalenessOf(concludePopUp));
+        if (isPopupPresent()) {
+            $(By.xpath("//button[normalize-space()='Yes']")).click();
+        } else {
+            System.out.println("No popup detected. proceeding without clicking");
+        }
+
+    }
+
+    private boolean isPopupPresent(){
+        try {
+            return $(By.xpath("//button[normalize-space()='Yes']")).isVisible();
+
+        } catch (Exception e) {
+            return false;
+        }
 
 
     }

@@ -4,6 +4,7 @@ import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -12,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LumpSumCover20000 extends PageObject {
-    String Url = "https://shambawebtest.clientele.co.za/shambaweb/";
+    String Url = "http://shambawebtest.clientele.local/shambaweb/";
 
 
     String ArrowButtonXpath = "//i[@class='bi bi-box-arrow-right profile-icon profile-icon-default']";
@@ -845,9 +846,26 @@ public class LumpSumCover20000 extends PageObject {
 
         WebElement concludePopUp = $(By.xpath("//button[contains(text(),'Conclude Sale')]"));
         concludePopUp.click();
+        Thread.sleep(10000);
 
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
         wait.until(ExpectedConditions.stalenessOf(concludePopUp));
+
+        if (isPopupPresent()) {
+            $(By.xpath("//button[normalize-space()='Yes']")).click();
+        } else {
+            System.out.println("No popup detected. proceeding without clicking");
+        }
+
+    }
+
+    private boolean isPopupPresent(){
+        try {
+            return $(By.xpath("//button[normalize-space()='Yes']")).isVisible();
+
+        } catch (Exception e) {
+            return false;
+        }
 
     }
 

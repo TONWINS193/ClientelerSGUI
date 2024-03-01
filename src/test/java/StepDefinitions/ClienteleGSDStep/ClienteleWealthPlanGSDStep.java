@@ -17,10 +17,11 @@ public class ClienteleWealthPlanGSDStep extends PageObject {
         clienteleWealthPlanGSD.OpenWebsite();
 
     }
-    @When("User Log in with Valid Credentials by entering, {string}, {string}")
-    public void user_log_in_with_valid_credentials_by_entering(String string, String string2) throws InterruptedException {
+
+    @When("User Log in with Valid Credentials by entering")
+    public void user_log_in_with_valid_credentials_by_entering() throws InterruptedException {
         clienteleWealthPlanGSD.clickArrowButton();
-        clienteleWealthPlanGSD.PopUpLogin(string, string2);
+        clienteleWealthPlanGSD.PopUpLogin("WRambau", "clientele#2023");
         clienteleWealthPlanGSD.LoginButton();
         clienteleWealthPlanGSD.ClienteleLogo();
         clienteleWealthPlanGSD.CaptureSale();

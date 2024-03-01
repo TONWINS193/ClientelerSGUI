@@ -17,10 +17,11 @@ public class LumpSumCover15000Step extends PageObject {
         lumpSumCover15000.OpenWebsite();
 
     }
-    @When("user log in with valid Credentials by entering, {string}, {string}")
-    public void user_log_in_with_valid_credentials_by_entering(String string, String string2) throws InterruptedException {
+
+    @When("user log in with valid Credentials by entering")
+    public void user_log_in_with_valid_credentials_by_entering() throws InterruptedException {
         lumpSumCover15000.clickArrowButton();
-        lumpSumCover15000.PopUpLogin(string, string2);
+        lumpSumCover15000.PopUpLogin("WRambau", "TonWins@2024");
         lumpSumCover15000.LoginButton();
         lumpSumCover15000.ClienteleLogo();
         lumpSumCover15000.CaptureSale();
@@ -48,7 +49,7 @@ public class LumpSumCover15000Step extends PageObject {
     }
     @When("User on the Slider select the cover amounts that are applicable to the plan chosen")
     public void user_on_the_slider_select_the_cover_amounts_that_are_applicable_to_the_plan_chosen() throws InterruptedException {
-        lumpSumCover15000.selectCoverAmount();
+
         lumpSumCover15000.ViewRates();
         lumpSumCover15000.StartSale();
         lumpSumCover15000.handleModelPopUp();

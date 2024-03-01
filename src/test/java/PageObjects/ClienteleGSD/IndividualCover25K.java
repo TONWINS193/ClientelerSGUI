@@ -13,7 +13,7 @@ import java.time.Duration;
 
 public class IndividualCover25K extends PageObject {
 
-    String Url = "https://shambawebtest.clientele.co.za/shambaweb/";
+    String Url = "http://shambawebtest.clientele.local/shambaweb/";
 
     String ArrowButtonXpath = "//i[@class='bi bi-box-arrow-right profile-icon profile-icon-default']";
 

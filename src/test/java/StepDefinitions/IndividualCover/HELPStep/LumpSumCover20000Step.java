@@ -12,15 +12,16 @@ public class LumpSumCover20000Step extends PageObject {
     @Steps
     LumpSumCover20000 lumpSumCover20000;
 
-    @Given("user log in SGUI\\/shamba Website")
-    public void user_log_in_sgui_shamba_website() throws InterruptedException {
+    @Given("user log in SGUI Or Shamba Website")
+    public void user_log_in_sgui_or_shamba_website() throws InterruptedException {
         lumpSumCover20000.OpenWebsite();
 
     }
-    @When("User log in With valid Credentials by entering, {string}, {string}")
-    public void user_log_in_with_valid_credentials_by_entering(String string, String string2) throws InterruptedException {
+
+    @When("User log in With valid Credentials by entering")
+    public void user_log_in_with_valid_credentials_by_entering() throws InterruptedException {
         lumpSumCover20000.clickArrowButton();
-        lumpSumCover20000.PopUpLogin(string, string2);
+        lumpSumCover20000.PopUpLogin("WRambau", "TonWins@2024");
         lumpSumCover20000.LoginButton();
         lumpSumCover20000.ClienteleLogo();
         lumpSumCover20000.CaptureSale();
@@ -120,5 +121,6 @@ public class LumpSumCover20000Step extends PageObject {
         lumpSumCover20000.debiCheck();
         lumpSumCover20000.summaryTable();
     }
+
 
 }

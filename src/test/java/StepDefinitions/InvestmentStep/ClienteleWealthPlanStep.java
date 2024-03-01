@@ -16,10 +16,10 @@ public class ClienteleWealthPlanStep extends PageObject {
     public void user_log_in_sgui_website() throws InterruptedException {
         clienteleWealthPlan.OpenWebsite();
     }
-    @When("User log in with Valid Credentials by entering, {string}, {string}")
-    public void user_log_in_with_valid_credentials_by_entering(String string, String string2) throws InterruptedException {
+    @When("User log in with Valid Credentials by entering")
+    public void user_log_in_with_valid_credentials_by_entering() throws InterruptedException {
         clienteleWealthPlan.clickArrowButton();
-        clienteleWealthPlan.PopUpLogin(string, string2);
+        clienteleWealthPlan.PopUpLogin("WRambau", "TonWins@2024");
         clienteleWealthPlan.LoginButton();
         clienteleWealthPlan.ClienteleLogo();
         clienteleWealthPlan.CaptureSale();

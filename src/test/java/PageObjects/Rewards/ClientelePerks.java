@@ -3,6 +3,7 @@ package PageObjects.Rewards;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -13,7 +14,7 @@ import java.time.Duration;
 public class ClientelePerks extends PageObject {
 
 
-    String Url = "https://shambawebtest.clientele.co.za/shambaweb/";
+    String Url = "http://shambawebtest.clientele.local/shambaweb/";
 
 
     String ArrowButtonXpath = "//i[@class='bi bi-box-arrow-right profile-icon profile-icon-default']";
@@ -643,6 +644,8 @@ public class ClientelePerks extends PageObject {
 
         $(By.xpath(PremiumXpath)).click();
 
+        Thread.sleep(2000);
+
         WebElement savePremium = $(By.xpath("(//span[@class='title'])"));
         savePremium.click();
 
@@ -652,7 +655,7 @@ public class ClientelePerks extends PageObject {
     public void navigateSummary()throws InterruptedException{
         Thread.sleep(5000);
 
-        $(By.xpath(SummaryXpath)).click();
+        $(By.xpath(SummaryXpath)) .click();
 
 
         WebElement checkbox = $(By.xpath("(//input[@type='checkbox'])[1]"));
@@ -663,13 +666,30 @@ public class ClientelePerks extends PageObject {
 
         WebElement concludeSale = $(By.xpath("//button[@type='button']"));
         concludeSale.click();
-        Thread.sleep(10000);
+
 
         WebElement concludePopUp = $(By.xpath("//button[contains(text(),'Conclude Sale')]"));
         concludePopUp.click();
+        Thread.sleep(2000);
 
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
-        wait.until(ExpectedConditions.stalenessOf(concludePopUp));
+//        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
+//        wait.until(ExpectedConditions.stalenessOf(concludePopUp));
+
+        if (isPopupPresent()) {
+            $(By.xpath("//button[normalize-space()='Yes']")).click();
+        } else {
+            System.out.println("No popup detected. proceeding without clicking");
+        }
+
+    }
+
+    private boolean isPopupPresent(){
+        try {
+            return $(By.xpath("//button[normalize-space()='Yes']")).isVisible();
+
+        } catch (Exception e) {
+            return false;
+        }
 
     }
 

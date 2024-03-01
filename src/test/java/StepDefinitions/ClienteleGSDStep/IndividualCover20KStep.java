@@ -17,10 +17,12 @@ public class IndividualCover20KStep extends PageObject {
         individualCover20K.OpenWebsite();
 
     }
-    @When("user log in with Valid Credentials by Entering, {string}, {string}")
-    public void user_log_in_with_valid_credentials_by_entering(String string, String string2) throws InterruptedException {
+
+
+    @When("user log in with Valid Credentials by Entering")
+    public void user_log_in_with_valid_credentials_by_entering() throws InterruptedException {
         individualCover20K.clickArrowButton();
-        individualCover20K.PopUpLogin(string, string2);
+        individualCover20K.PopUpLogin("WRambau", "clientele#2023");
         individualCover20K.LoginButton();
         individualCover20K.ClienteleLogo();
         individualCover20K.CaptureSale();
