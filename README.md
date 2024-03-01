@@ -278,4 +278,5 @@ For more information about Serenity BDD, you can read the [**Serenity BDD Book**
 * For regular posts on agile test automation best practices, join the **[Agile Test Automation Secrets](https://www.linkedin.com/groups/8961597/)** groups on [LinkedIn](https://www.linkedin.com/groups/8961597/) and [Facebook](https://www.facebook.com/groups/agiletestautomation/)
 * [**Serenity BDD Blog**](https://johnfergusonsmart.com/category/serenity-bdd/) - regular articles about Serenity BDD
 #   C T L - C u c u m b e r S t a r t e r  
+ #   C l i e n t e l e T e s t s  
  
