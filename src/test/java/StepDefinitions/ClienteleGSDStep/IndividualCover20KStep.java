@@ -22,7 +22,7 @@ public class IndividualCover20KStep extends PageObject {
     @When("user log in with Valid Credentials by Entering")
     public void user_log_in_with_valid_credentials_by_entering() throws InterruptedException {
         individualCover20K.clickArrowButton();
-        individualCover20K.PopUpLogin("WRambau", "clientele#2023");
+        individualCover20K.PopUpLogin("kmolale", "Kebaabetswem@14");
         individualCover20K.LoginButton();
         individualCover20K.ClienteleLogo();
         individualCover20K.CaptureSale();
@@ -80,6 +80,15 @@ public class IndividualCover20KStep extends PageObject {
         individualCover20K.clickSaveMMBtn();
 
     }
+    @When("user Confirms Beneficiary {string}")
+    public void userConfirmsBeneficiary(String string) throws InterruptedException {
+        individualCover20K.navigateBeneficiary();
+        individualCover20K.addBeneficiary();
+        individualCover20K.selectRelation(string);
+        individualCover20K.saveBeneficiary();
+
+
+    }
     @When("user Add payer Details by capturing, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
     public void user_add_payer_details_by_capturing(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13) throws InterruptedException {
         individualCover20K.navigatePayer();
@@ -102,32 +111,29 @@ public class IndividualCover20KStep extends PageObject {
         individualCover20K.isEmployee(string13);
 
 
+
     }
-    @Then("User add Government Details if selected yes, {string}, {string}, {string}, {string}, {string}")
-    public void user_add_government_details_if_selected_yes(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
+    @Then("User add Government Details if selected yes , FICA and Premium Rates by capturing necessary Details,  {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void userAddGovernmentDetailsIfSelectedYesFICAAndPremiumRatesByCapturingNecessaryDetails(String string, String string2, String string3, String string4, String string5 , String string6, String string7) throws InterruptedException {
         individualCover20K.addGSD(string, string2, string3);
         individualCover20K.confCheckBoxes();
         individualCover20K.selectDebit(string4);
         individualCover20K.selectDebiDate(string5);
         individualCover20K.clickSaveBtn();
-
-    }
-    @When("user Confirms Beneficiary, FICA and Premium Rates by capturing necessary Details, {string}, {string}, {string}")
-    public void user_confirms_beneficiary_fica_and_premium_rates_by_capturing_necessary_details(String string, String string2, String string3) throws InterruptedException {
-        individualCover20K.navigateBeneficiary();
-        individualCover20K.addBeneficiary();
-        individualCover20K.selectRelation(string);
-        individualCover20K.saveBeneficiary();
-        individualCover20K.navigateFICA(string2, string3);
+        individualCover20K.navigateFICA(string6, string7);
         individualCover20K.navigatePremium();
 
     }
+
     @Then("User Proceed with the Cover and Conclude sale.")
     public void user_proceed_with_the_cover_and_conclude_sale() throws InterruptedException {
-        individualCover20K.navigateRewards();
+       // individualCover20K.navigateRewards();
         individualCover20K.navigateSummary();
         individualCover20K.PopUPCheckboxes();
+        individualCover20K.SecondSaleIiII();
         individualCover20K.summaryTable();
+
     }
 
+  
 }

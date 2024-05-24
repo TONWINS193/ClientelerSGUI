@@ -21,7 +21,7 @@ public class ClienteleWealthPlanGSDStep extends PageObject {
     @When("User Log in with Valid Credentials by entering")
     public void user_log_in_with_valid_credentials_by_entering() throws InterruptedException {
         clienteleWealthPlanGSD.clickArrowButton();
-        clienteleWealthPlanGSD.PopUpLogin("WRambau", "clientele#2023");
+        clienteleWealthPlanGSD.PopUpLogin("kmolale", "Kebaabetswem@14");
         clienteleWealthPlanGSD.LoginButton();
         clienteleWealthPlanGSD.ClienteleLogo();
         clienteleWealthPlanGSD.CaptureSale();
@@ -62,7 +62,16 @@ public class ClienteleWealthPlanGSDStep extends PageObject {
         clienteleWealthPlanGSD.clickSaveMMBtn();
 
     }
-    @Then("User Add payer details By Capturing, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    @Then("user confirms Beneficiary details {string},")
+    public void userConfirmsBeneficiaryDetails(String string) throws InterruptedException {
+        clienteleWealthPlanGSD.navigateBeneficiary();
+        clienteleWealthPlanGSD.addBeneficiary();
+        clienteleWealthPlanGSD.selectRelation(string);
+        clienteleWealthPlanGSD.saveBeneficiary();
+
+
+    }
+    @When("User Add payer details By Capturing, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
     public void user_add_payer_details_by_capturing(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13) throws InterruptedException {
         clienteleWealthPlanGSD.navigatePayer();
         clienteleWealthPlanGSD.selectTittle(string);
@@ -83,8 +92,9 @@ public class ClienteleWealthPlanGSDStep extends PageObject {
         clienteleWealthPlanGSD.enterMobiNum(string12);
         clienteleWealthPlanGSD.isEmployee(string13);
 
+
     }
-    @When("user add Government details if selected yes, {string}, {string}, {string}, {string}, {string}")
+    @Then("user add Government details if selected yes, {string}, {string}, {string}, {string}, {string}")
     public void user_add_government_details_if_selected_yes(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
         clienteleWealthPlanGSD.addGSD(string, string2, string3);
         clienteleWealthPlanGSD.selectDebit(string4);
@@ -93,22 +103,21 @@ public class ClienteleWealthPlanGSDStep extends PageObject {
         clienteleWealthPlanGSD.clickSaveBtn();
 
     }
-    @When("user confirms Beneficiary, FICA and Premium rates by capturing necessary details, {string}, {string}, {string}, {string}")
-    public void user_confirms_beneficiary_fica_and_premium_rates_by_capturing_necessary_details(String string, String string2, String string3, String string4) throws InterruptedException {
-        clienteleWealthPlanGSD.navigateBeneficiary();
-        clienteleWealthPlanGSD.addBeneficiary();
-        clienteleWealthPlanGSD.selectRelation(string);
-        clienteleWealthPlanGSD.saveBeneficiary();
+    @When("User confirms FICA and Premium rates by capturing necessary details   {string}, {string}, {string}")
+    public void userConfirmsFICAAndPremiumRatesByCapturingNecessaryDetails(String string2, String string3, String string4) throws InterruptedException {
         clienteleWealthPlanGSD.navigateFICA(string2, string3);
         clienteleWealthPlanGSD.navigatePremium(string4);
-
     }
+
+
     @Then("user proceed with the Cover and Conclude Sale.")
     public void user_proceed_with_the_cover_and_conclude_sale() throws InterruptedException {
-        clienteleWealthPlanGSD.navigateRewards();
+       // clienteleWealthPlanGSD.navigateRewards();
         clienteleWealthPlanGSD.navigateSummary();
         clienteleWealthPlanGSD.PopUPCheckboxes();
+        clienteleWealthPlanGSD.SecondSaleIiII();
         clienteleWealthPlanGSD.summaryTable();
+
 
     }
 

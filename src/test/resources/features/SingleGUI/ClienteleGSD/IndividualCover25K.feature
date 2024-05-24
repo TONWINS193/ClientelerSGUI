@@ -10,9 +10,9 @@ Feature:Clientele accident plus health event life plan Functionality
     Then User select the Date of Birth of the Main life Assured, "<MemberDOB>"
     When User on the Slider Select the Cover Amounts that are applicable to the plan chosen
     Then user Add Member Details by Capturing, "<MemberTitle>", "<MemberName>", "<MemberSurname>", "<MemberCitizenShip>", "<MemberID>", "<ConfirmID>", "<MonthlyIncome>", "<Occupation>", "<Education>", "<CellNumber>", "<PostalAddress>", "<PostalCode>"
+    When User Confirms Beneficiary, "<BeneficiaryRelation>"
     When user Add Payer Details by capturing, "<PayerTitle>", "<PayerName>", "<PayerSurname>", "<PayerID>", "<ConfirmPayerID>", "<PayerRelation>", "<BankName>", "<BranchCode>", "<AccountType>", "<AccountNumber>", "<ConfirmAccount>", "<MobileNumber>", "<IsPayerEmployee>"
-    Then User add Government Details if selected Yes, "<EmployeeNumber>", "<Department>", "<Authorised>", "<DebitDay>", "<DebitDate>"
-    When User Confirms Beneficiary, FICA and Premium Rates by capturing necessary Details, "<BeneficiaryRelation>", "<IsProminentPublicOfficial>", "<IsProminentInternationalPublicOfficial>"
+    Then User add Government Details if selected Yes, FICA and Premium Rates by capturing necessary Details, "<EmployeeNumber>", "<Department>", "<Authorised>", "<DebitDay>", "<DebitDate>", "<IsProminentPublicOfficial>", "<IsProminentInternationalPublicOfficial>"
     Then user Proceed with the Cover and Conclude sale.
 
 

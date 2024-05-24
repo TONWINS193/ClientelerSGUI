@@ -13,7 +13,7 @@ import java.time.Duration;
 
 public class ClienteleWealthPlan extends PageObject {
 
-    String Url = "http://shambawebtest.clientele.local/shambaweb/";
+    String Url = "http://shambawebuat.clientele.local/shambaweb/";
 
 
     String ArrowButtonXpath = "//i[@class='bi bi-box-arrow-right profile-icon profile-icon-default']";
@@ -85,7 +85,17 @@ public class ClienteleWealthPlan extends PageObject {
 
     String SaveMainMemberXpath = "//*[@id=\"pills-tabContent\"]/member/div/div[2]/div/div[2]/button";
 
-    String PayerXpath ="/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[2]/div[2]";
+
+
+    String BeneficiaryXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[2]/div[2]";
+
+    String AddBenXpath = "//button[@class='mat-focus-indicator mat-flat-button mat-button-base mat-primary']";
+
+    String RelationXpath = "//select[@id='Relation']";
+
+    String SaveBenXpath = "//span[normalize-space()='Save Beneficiary']";
+
+    String PayerXpath ="/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[3]/div[2]";
 
     String PayerTittleXpath = "//select[@id='Title']";
 
@@ -130,14 +140,6 @@ public class ClienteleWealthPlan extends PageObject {
     String CheckBox1Xpath = "(//input[@type='checkbox'])[2]";
 
     String SavePayerXpath = "//button[@class='btn btn-success']";
-
-    String BeneficiaryXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[3]/div[2]";
-
-    String AddBenXpath = "//button[@class='mat-focus-indicator mat-flat-button mat-button-base mat-primary']";
-
-    String RelationXpath = "//select[@id='Relation']";
-
-    String SaveBenXpath = "//span[normalize-space()='Save Beneficiary']";
 
     String FICAXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[4]/div[2]";
 
@@ -759,57 +761,19 @@ public class ClienteleWealthPlan extends PageObject {
     }
 
     @Step("Navigate to Summary Page")
-    public void navigateSummary()throws InterruptedException{
-        Thread.sleep(5000);
+    public void navigateSummary()throws InterruptedException {
+        Thread.sleep(10000);
 
         $(By.xpath(SummaryXpath)).click();
 
+        $(By.xpath("//*[@id=\"pills-tabContent\"]/accept-sale/div/div[3]/div/div/div/button")).click();
 
-        WebElement checkbox = $(By.xpath("(//input[@type='checkbox'])[1]"));
+        $(By.xpath("//input[@type='checkbox']")).click();
 
-        if (!checkbox.isSelected()) {
-            checkbox.click();
-        }
+        $(By.xpath("//button[contains(text(),'Conclude Sale')]")).click();
 
-        WebElement checkbox1 = $(By.xpath("(//input[@type='checkbox'])[2]"));
+        Thread.sleep(5000);
 
-        if (!checkbox1.isSelected()) {
-            checkbox1.click();
-        }
-
-        WebElement checkbox2 = $(By.xpath("(//input[@type='checkbox'])[3]"));
-
-        if (!checkbox2.isSelected()) {
-            checkbox2.click();
-        }
-
-        WebElement checkbox3 = $(By.xpath("(//input[@type='checkbox'])[4]"));
-
-        if (!checkbox3.isSelected()) {
-            checkbox3.click();
-        }
-
-        WebElement checkbox4 = $(By.xpath("(//input[@type='checkbox'])[5]"));
-
-        if (!checkbox4.isSelected()) {
-            checkbox4.click();
-        }
-
-        WebElement checkbox5 = $(By.xpath("(//input[@type='checkbox'])[6]"));
-
-        if (!checkbox5.isSelected()) {
-            checkbox5.click();
-        }
-
-        WebElement concludeSale = $(By.xpath("//button[@type='button']"));
-        concludeSale.click();
-
-        WebElement concludePopUp = $(By.xpath("//button[contains(text(),'Conclude Sale')]"));
-        concludePopUp.click();
-        Thread.sleep(2000);
-
-//        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
-//        wait.until(ExpectedConditions.stalenessOf(concludePopUp));
 
         if (isPopupPresent()) {
             $(By.xpath("//button[normalize-space()='Yes']")).click();
@@ -819,7 +783,7 @@ public class ClienteleWealthPlan extends PageObject {
 
     }
 
-    private boolean isPopupPresent(){
+    private boolean isPopupPresent() throws InterruptedException {
         try {
             return $(By.xpath("//button[normalize-space()='Yes']")).isVisible();
 
@@ -827,7 +791,11 @@ public class ClienteleWealthPlan extends PageObject {
             return false;
         }
 
+
     }
+
+
+
 
     @Step("Debi-check page")
     public void debiCheck()throws InterruptedException{
@@ -838,12 +806,16 @@ public class ClienteleWealthPlan extends PageObject {
         Thread.sleep(2000);
 
 
-        $(By.xpath("//span[@class='title'][1]")).click();
+        $(By.xpath("(//button[@type='button'])[1]")).click();
 
 
 
 
 
+    }
+    @Step("Second sale")
+    public void SecondSaleIiII(){
+        $(By.xpath("//button[normalize-space()='Yes']")).click();
     }
 
     @Step("View summary table page")
@@ -852,6 +824,9 @@ public class ClienteleWealthPlan extends PageObject {
 
         WebElement bootstrap = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(SummaryTableXpath)));
         bootstrap.click();
+
+
+
 
 
     }

@@ -21,7 +21,7 @@ public class LumpSumCover15000Step extends PageObject {
     @When("user log in with valid Credentials by entering")
     public void user_log_in_with_valid_credentials_by_entering() throws InterruptedException {
         lumpSumCover15000.clickArrowButton();
-        lumpSumCover15000.PopUpLogin("WRambau", "TonWins@2024");
+        lumpSumCover15000.PopUpLogin("kmolale", "Kebaabetswem@14");
         lumpSumCover15000.LoginButton();
         lumpSumCover15000.ClienteleLogo();
         lumpSumCover15000.CaptureSale();
@@ -51,6 +51,7 @@ public class LumpSumCover15000Step extends PageObject {
     public void user_on_the_slider_select_the_cover_amounts_that_are_applicable_to_the_plan_chosen() throws InterruptedException {
 
         lumpSumCover15000.ViewRates();
+
         lumpSumCover15000.StartSale();
         lumpSumCover15000.handleModelPopUp();
 
@@ -77,8 +78,17 @@ public class LumpSumCover15000Step extends PageObject {
         lumpSumCover15000.clickSaveMMBtn();
 
     }
-    @When("user add payer details by Capturing, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void user_add_payer_details_by_capturing(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13, String string14, String string15) throws InterruptedException {
+
+    @When("user confirms Beneficiary, FICA and Premium Rates by capturing necessary details, {string},")
+    public void userConfirmsBeneficiaryFICAAndPremiumRatesByCapturingNecessaryDetails(String string) throws InterruptedException {
+        lumpSumCover15000.navigateBeneficiary();
+        lumpSumCover15000.addBeneficiary();
+        lumpSumCover15000.selectRelation(string);
+        lumpSumCover15000.saveBeneficiary();
+
+    }
+    @When("user add payer details by Capturing, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string},  {string}, {string}")
+    public void userAddPayerDetailsByCapturing(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13, String string14, String string15, String string16, String  string17) throws InterruptedException {
         lumpSumCover15000.navigatePayer();
         lumpSumCover15000.selectTittle(string);
         lumpSumCover15000.enterName(string2);
@@ -101,26 +111,19 @@ public class LumpSumCover15000Step extends PageObject {
         lumpSumCover15000.isEmployee(string15);
         lumpSumCover15000.confCheckBoxes();
         lumpSumCover15000.clickSaveBtn();
-    }
-    @When("user confirms Beneficiary, FICA and Premium Rates by capturing necessary details, {string}, {string}, {string}")
-    public void user_confirms_beneficiary_fica_and_premium_rates_by_capturing_necessary_details(String string, String string2, String string3) throws InterruptedException {
-        lumpSumCover15000.navigateBeneficiary();
-        lumpSumCover15000.addBeneficiary();
-        lumpSumCover15000.selectRelation(string);
-        lumpSumCover15000.saveBeneficiary();
-        lumpSumCover15000.navigateFICA(string2, string3);
+        lumpSumCover15000.navigateFICA(string16, string17);
         lumpSumCover15000.navigatePremium();
     }
     @Then("User proceed with the Cover and conclude sale.")
     public void user_proceed_with_the_cover_and_conclude_sale() throws InterruptedException {
-        lumpSumCover15000.navigateRewards();
+       // lumpSumCover15000.navigateRewards();
         lumpSumCover15000.navigateSummary();
         lumpSumCover15000.debiCheck();
+        lumpSumCover15000.SecondSaleIiII();
         lumpSumCover15000.summaryTable();
+     
 
     }
-
-
 
 
 }

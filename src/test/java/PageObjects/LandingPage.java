@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class LandingPage extends PageObject {
 
-    String Url ="https://shambawebtest.clientele.co.za/shambaweb/home";
+    String Url = "http://shambawebuat.clientele.local/shambaweb/";
 
     String LoginBtn = "//*[@id=\"navbarSupportedContent\"]/div/div/button/span";
     String UserName = "//*[@id=\"i0116\"]";

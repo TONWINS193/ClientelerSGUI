@@ -21,7 +21,7 @@ public class FamilyStep extends PageObject {
     @When("user log in with valid Credentials by entering....")
     public void userLogInWithValidCredentialsByEntering() throws InterruptedException {
         family.clickArrowButton();
-        family.PopUpLogin("WRambau", "TonWins@2024");
+        family.PopUpLogin("WRambau", "Clientele#2024");
         family.LoginButton();
         family.ClienteleLogo();
         family.CaptureSale();
@@ -79,8 +79,55 @@ public class FamilyStep extends PageObject {
         family.clickSaveMMBtn();
 
     }
-    @When("user add payer details by capturing... {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void userAddPayerDetailsByCapturing(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13, String string14, String string15) throws InterruptedException {
+
+    @When("user add spouse details by capturing... {string}, {string}, {string}, {string}, {string}")
+    public void userAddSpouseDetailsByCapturing(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
+        family.navigateSpouse();
+        family.spouseTitle(string);
+        family.spouseName(string2);
+        family.spouseSurName(string3);
+        family.spouseGender(string4);
+        family.spouseID(string5);
+
+    }
+    @Then("user add child details by capturing... {string}, {string}, {string}, {string}, {string}")
+    public void userAddChildDetailsByCapturing(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
+        family.navigateChild();
+        family.clickTab();
+        family.enterChildName(string);
+        family.enterChildSurname(string2);
+        family.selectGender(string3);
+        family.enterChildID(string4);
+        family.ChildIsStudent(string5);
+
+    }
+    @When("user add extended member by capturing... {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void userAddExtendedMemberByCapturing(String string, String string2, String string3, String string4, String string5, String string6, String string7) throws InterruptedException {
+        family.navigateExtend();
+        family.Tittle(string);
+        family.Name(string2);
+        family.Surname(string3);
+        family.Relation(string4);
+        family.Gender(string5);
+        family.extendID(string6);
+      //  family.PremiumPayBack(string7);
+
+    }
+    @Then("user add cover amount on the slider of extended family.. {int}")
+    public void userAddCoverAmountOnTheSliderOfExtendedFamily(Integer int1) throws InterruptedException {
+        family.extendedCover(int1);
+
+    }
+    @When("User proceed adding beneficiary details.....")
+    public void userProceedAddingBeneficiaryDetails() throws InterruptedException {
+        family.navigateBeneficiary();
+        family.addBeneficiary();
+        family.selectRelation("Member Estate");
+        family.saveBeneficiary();
+
+    }
+    @Then("user add payer details and concludes sale... {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void userAddPayerDetailsAndConcludesSale(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13, String string14, String string15) throws InterruptedException {
         family.navigatePayer();
         family.selectTittle(string);
         family.enterName(string2);
@@ -103,59 +150,18 @@ public class FamilyStep extends PageObject {
         family.isEmployee(string15);
         family.confCheckBoxes();
         family.clickSaveBtn();
-
-    }
-    @Then("user add spouse details by capturing... {string}, {string}, {string}, {string}, {string}")
-    public void userAddSpouseDetailsByCapturing(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
-        family.navigateSpouse();
-        family.spouseTitle(string);
-        family.spouseName(string2);
-        family.spouseSurName(string3);
-        family.spouseGender(string4);
-        family.spouseID(string5);
-
-    }
-    @When("user add child details by capturing... {string}, {string}, {string}, {string}, {string}")
-    public void userAddChildDetailsByCapturing(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
-        family.navigateChild();
-        family.clickTab();
-        family.enterChildName(string);
-        family.enterChildSurname(string2);
-        family.selectGender(string3);
-        family.enterChildID(string4);
-        family.ChildIsStudent(string5);
-
-    }
-    @Then("user add extended member by capturing... {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void userAddExtendedMemberByCapturing(String string, String string2, String string3, String string4, String string5, String string6, String string7) throws InterruptedException {
-        family.navigateExtend();
-        family.Tittle(string);
-        family.Name(string2);
-        family.Surname(string3);
-        family.Relation(string4);
-        family.Gender(string5);
-        family.extendID(string6);
-        family.PremiumPayBack(string7);
-
-    }
-    @When("user add cover amount on the slider of extended family.. {int}")
-    public void userAddCoverAmountOnTheSliderOfExtendedFamily(Integer int1) throws InterruptedException {
-        family.extendedCover(int1);
-
-    }
-    @Then("User proceed with the Cover and conclude sale.....")
-    public void userProceedWithTheCoverAndConcludeSale() throws InterruptedException {
-        family.navigateBeneficiary();
-        family.addBeneficiary();
-        family.selectRelation("Member Estate");
-        family.saveBeneficiary();
         family.navigateFICA();
         family.navigatePremium();
         family.navigateRewards();
         family.navigateSummary();
         family.debiCheck();
+        family.SecondSaleIiII();
         family.summaryTable();
 
+
+
     }
+
+
 
 }

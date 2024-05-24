@@ -20,7 +20,7 @@ public class IndividualStep extends PageObject {
     @When("user log in with valid Credentials by entering.....")
     public void userLogInWithValidCredentialsByEntering() throws InterruptedException {
         individual.clickArrowButton();
-        individual.PopUpLogin("WRambau", "TonWins@2024");
+        individual.PopUpLogin("WRambau", "Clientele#2024");
         individual.LoginButton();
         individual.ClienteleLogo();
         individual.CaptureSale();
@@ -78,8 +78,35 @@ public class IndividualStep extends PageObject {
         individual.clickSaveMMBtn();
 
     }
-    @When("user add payer details by capturing.... {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void userAddPayerDetailsByCapturing(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13, String string14, String string15) throws InterruptedException {
+
+    @When("user add extended member by capturing.... {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void userAddExtendedMemberByCapturing(String string, String string2, String string3, String string4, String string5, String string6, String string7) throws InterruptedException {
+        individual.navigateExtend();
+        individual.Tittle(string);
+        individual.Name(string2);
+        individual.Surname(string3);
+        individual.Relation(string4);
+        individual.Gender(string5);
+        individual.extendID(string6);
+        individual.PremiumPayBack(string7);
+
+    }
+    @Then("user add cover amount on the slider of extended family..... {int}")
+    public void userAddCoverAmountOnTheSliderOfExtendedFamily(Integer int1) throws InterruptedException {
+        individual.extendedCover(int1);
+
+    }
+    @When("User proceed with capturing beneficiary details .......")
+    public void userProceedWithCapturingBeneficiaryDetails() throws InterruptedException {
+        individual.navigateBeneficiary();
+        individual.addBeneficiary();
+        individual.selectRelation("Member Estate");
+        individual.saveBeneficiary();
+
+
+    }
+    @Then("user add payer details by capturing payer details and concluding sale.... {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void userAddPayerDetailsByCapturingPayerDetailsAndConcludingSale(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13, String string14, String string15) throws InterruptedException {
         individual.navigatePayer();
         individual.selectTittle(string);
         individual.enterName(string2);
@@ -102,37 +129,14 @@ public class IndividualStep extends PageObject {
         individual.isEmployee(string15);
         individual.confCheckBoxes();
         individual.clickSaveBtn();
-
-    }
-    @Then("user add extended member by capturing.... {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void userAddExtendedMemberByCapturing(String string, String string2, String string3, String string4, String string5, String string6, String string7) throws InterruptedException {
-        individual.navigateExtend();
-        individual.Tittle(string);
-        individual.Name(string2);
-        individual.Surname(string3);
-        individual.Relation(string4);
-        individual.Gender(string5);
-        individual.extendID(string6);
-        individual.PremiumPayBack(string7);
-
-    }
-    @When("user add cover amount on the slider of extended family..... {int}")
-    public void userAddCoverAmountOnTheSliderOfExtendedFamily(Integer int1) throws InterruptedException {
-        individual.extendedCover(int1);
-
-    }
-    @Then("User proceed with the Cover and conclude sale.......")
-    public void userProceedWithTheCoverAndConcludeSale() throws InterruptedException {
-        individual.navigateBeneficiary();
-        individual.addBeneficiary();
-        individual.selectRelation("Member Estate");
-        individual.saveBeneficiary();
         individual.navigateFICA();
         individual.navigatePremium();
-        individual.navigateRewards();
+        //individual.navigateRewards();
         individual.navigateSummary();
         individual.debiCheck();
+        individual.SecondSaleIiII();
         individual.summaryTable();
+
 
     }
 

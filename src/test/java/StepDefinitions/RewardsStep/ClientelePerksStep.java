@@ -92,6 +92,7 @@ public class ClientelePerksStep extends PageObject {
         clientelePerks.navigatePremium();
         clientelePerks.navigateSummary();
         clientelePerks.debiCheck();
+        clientelePerks.SecondSaleIiII();
         clientelePerks.summaryTable();
     }
 

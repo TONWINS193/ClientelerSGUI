@@ -65,7 +65,7 @@ public class Family extends PageObject {
 
     String IDNumberXpath = "//input[@id='IdentityNumber']";
 
-    String MainInputID ="//input[@id='mainInput']";
+    String MainInputID = "//input[@id='mainInput']";
 
     String ConfirmID = "//input[@id='confirmationInput']";
 
@@ -91,7 +91,7 @@ public class Family extends PageObject {
 
     String SaveMainMemberXpath = "//*[@id=\"pills-tabContent\"]/member/div/div[2]/div/div[2]/button";
 
-    String PayerXpath ="/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[2]/div[2]";
+    String PayerXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[6]/div[2]";
 
     String PayerTittleXpath = "//select[@id='Title']";
 
@@ -137,11 +137,11 @@ public class Family extends PageObject {
 
     String SavePayerXpath = "//button[@class='btn btn-success']";
 
-    String SpouseXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[3]/div[2]";
+    String SpouseXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[2]/div[2]";
 
-    String ChildXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[4]/div[2]";
+    String ChildXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[3]/div[2]";
 
-    String ExtendedXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[5]/div[1]";
+    String ExtendedXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[4]/div[1]";
 
     String ExtendedTittleXpath = "//select[@id='Title']";
 
@@ -151,7 +151,7 @@ public class Family extends PageObject {
 
     String ExtendedRelationshipXpath = "//*[@id=\"RelationToMember\"]";
 
-    String BeneficiaryXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[6]/div[2]";
+    String BeneficiaryXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[5]/div[2]";
 
     String AddBenXpath = "//button[@class='mat-focus-indicator mat-flat-button mat-button-base mat-primary']";
 
@@ -165,7 +165,7 @@ public class Family extends PageObject {
 
     String RewardsXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[9]/div[2]";
 
-    String SummaryXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[10]/div[2]";
+    String SummaryXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[9]/div[2]";
 
     String ConfirmDebiCheckXpath = "//input[@type='checkbox'][1]";
 
@@ -181,8 +181,8 @@ public class Family extends PageObject {
     }
 
     @Step("Clicks on Arrow-Button to log in")
-    public void clickArrowButton(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5) );
+    public void clickArrowButton() {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ArrowButtonXpath)));
 
         element.click();
@@ -201,12 +201,10 @@ public class Family extends PageObject {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(PassWord))).sendKeys(Password);
 
 
-
-
     }
 
     @Step("Clicks on Login")
-    public void LoginButton() throws  InterruptedException{
+    public void LoginButton() throws InterruptedException {
         $(By.xpath(LoginXpath)).click();
 
     }
@@ -238,7 +236,7 @@ public class Family extends PageObject {
     }
 
     @Step("Select New on lead basket filter ")
-    public void selectNew()throws InterruptedException{
+    public void selectNew() throws InterruptedException {
         Thread.sleep(2000);
 
         $(By.xpath(LeadBasketFilterXpath)).click();
@@ -316,10 +314,10 @@ public class Family extends PageObject {
     }
 
     @Step("Click on Main life DoB text field and select dates")
-    public void SelectDoB(String DOB)throws InterruptedException{
+    public void SelectDoB(String DOB) throws InterruptedException {
         Thread.sleep(1000);
 
-        WebElement DoB =  $(By.xpath(MainLifeDoB) );
+        WebElement DoB = $(By.xpath(MainLifeDoB));
 
         DoB.click();
 
@@ -329,41 +327,41 @@ public class Family extends PageObject {
     }
 
     @FindBy(xpath = "(//div[@class='ngx-slider-inner-tooltip ng-star-inserted'])[1]")
-    private  WebElement pointer1;
+    private WebElement pointer1;
     @FindBy(xpath = "//span[2]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer2;
+    private WebElement pointer2;
 
     @FindBy(xpath = "//span[3]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer3;
+    private WebElement pointer3;
 
     @FindBy(xpath = "//span[4]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer4;
+    private WebElement pointer4;
     @FindBy(xpath = "//span[5]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer5;
+    private WebElement pointer5;
     @FindBy(xpath = "//span[6]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer6;
+    private WebElement pointer6;
     @FindBy(xpath = "//span[7]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer7;
+    private WebElement pointer7;
     @FindBy(xpath = "//span[8]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer8;
+    private WebElement pointer8;
     @FindBy(xpath = "//span[9]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer9;
+    private WebElement pointer9;
     @FindBy(xpath = "//span[10]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer10;
+    private WebElement pointer10;
     @FindBy(xpath = "//span[11]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer11;
+    private WebElement pointer11;
     @FindBy(xpath = "//span[12]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer12;
+    private WebElement pointer12;
     @FindBy(xpath = "//span[13]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer13;
+    private WebElement pointer13;
     @FindBy(xpath = "//span[14]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer14;
+    private WebElement pointer14;
     @FindBy(xpath = "//span[15]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer15;
+    private WebElement pointer15;
     @FindBy(xpath = "//span[16]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer16;
+    private WebElement pointer16;
     @FindBy(xpath = "//span[17]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement pointer17;
+    private WebElement pointer17;
 
     @Step("Select cover amount on slider")
     public void selectCover(int coverAmount) throws InterruptedException {
@@ -372,39 +370,39 @@ public class Family extends PageObject {
 
         coverAmount = Math.max(minValue, Math.min(maxValue, coverAmount));
 
-        if (coverAmount == 13000){
+        if (coverAmount == 13000) {
             pointer1.click();
-        } else  if(coverAmount == 18000){
+        } else if (coverAmount == 18000) {
             pointer2.click();
-        } else if (coverAmount == 23000){
+        } else if (coverAmount == 23000) {
             pointer3.click();
-        } else if (coverAmount == 28000){
+        } else if (coverAmount == 28000) {
             pointer4.click();
-        } else  if(coverAmount == 33000){
+        } else if (coverAmount == 33000) {
             pointer5.click();
-        } else if (coverAmount == 38000){
+        } else if (coverAmount == 38000) {
             pointer6.click();
-        } else if (coverAmount == 43000){
+        } else if (coverAmount == 43000) {
             pointer7.click();
-        } else  if(coverAmount == 48000){
+        } else if (coverAmount == 48000) {
             pointer8.click();
-        } else if (coverAmount == 53000){
+        } else if (coverAmount == 53000) {
             pointer9.click();
-        } else if (coverAmount == 58000){
+        } else if (coverAmount == 58000) {
             pointer10.click();
-        } else  if(coverAmount == 63000){
+        } else if (coverAmount == 63000) {
             pointer11.click();
-        } else if (coverAmount == 68000){
+        } else if (coverAmount == 68000) {
             pointer12.click();
-        } else if (coverAmount == 73000){
+        } else if (coverAmount == 73000) {
             pointer13.click();
-        } else  if(coverAmount == 78000){
+        } else if (coverAmount == 78000) {
             pointer14.click();
-        } else if (coverAmount == 83000){
+        } else if (coverAmount == 83000) {
             pointer15.click();
-        } else if (coverAmount == 88000){
+        } else if (coverAmount == 88000) {
             pointer16.click();
-        } else if (coverAmount == 93000){
+        } else if (coverAmount == 93000) {
             pointer17.click();
         }
 
@@ -412,14 +410,14 @@ public class Family extends PageObject {
 
 
     @Step("Click on view button to proceed with quotes")
-    public void ViewRates()throws InterruptedException {
+    public void ViewRates() throws InterruptedException {
         Thread.sleep(5000);
 
         $(By.xpath(ViewRates)).click();
     }
 
     @Step("Click on Start Sale Button")
-    public void StartSale()throws InterruptedException {
+    public void StartSale() throws InterruptedException {
         Thread.sleep(5000);
 
         $(By.xpath(StartSale)).click();
@@ -427,7 +425,7 @@ public class Family extends PageObject {
     }
 
     @Step("Click continue or cancel button on FAIS Disclosure PopUp Link")
-    public void handleModelPopUp(){
+    public void handleModelPopUp() {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(FAISXpath)));
@@ -438,7 +436,7 @@ public class Family extends PageObject {
     }
 
     @Step("Select Tittle type from dropdown")
-    public void selectTittleDropdown(String Tittle)throws InterruptedException{
+    public void selectTittleDropdown(String Tittle) throws InterruptedException {
         Thread.sleep(3000);
 
         WebElement dropdown = $(By.xpath(TittleXpath));
@@ -448,7 +446,7 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Name(s) on input field text")
-    public void EnterName(String Name){
+    public void EnterName(String Name) {
 
         WebElement fieldText = $(By.xpath(NameXpath));
         fieldText.click();
@@ -457,14 +455,14 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Surname on input field text")
-    public void EnterSurname(String Surname){
+    public void EnterSurname(String Surname) {
         WebElement fieldText = $(By.xpath(SurnameXpath));
         fieldText.click();
         fieldText.sendKeys(Surname);
     }
 
     @Step("Select South African Citizen dropdown field")
-    public void selectSACitizen(String SouthAfricanCitizen){
+    public void selectSACitizen(String SouthAfricanCitizen) {
         WebElement dropdown = $(By.xpath(SACitizenXpath));
         Select selectObject = new Select(dropdown);
 
@@ -472,27 +470,26 @@ public class Family extends PageObject {
     }
 
     @Step("Click on ID text box")
-    public void clickTextBox(){
+    public void clickTextBox() {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
         WebElement fieldText = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(IDNumberXpath)));
         fieldText.click();
 
 
-
     }
 
     @Step("Click on ID Number MainInput PopUp ")
-    public void enterID(String IDNumber){
+    public void enterID(String IDNumber) {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
-        WebElement  mainIDPopUP = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(MainInputID)));
+        WebElement mainIDPopUP = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(MainInputID)));
         mainIDPopUP.click();
         mainIDPopUP.sendKeys(IDNumber);
 
     }
 
     @Step("Click on confirm ID Number PopUp")
-    public void confirmID(String IDNumber){
+    public void confirmID(String IDNumber) {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
         WebElement confirmInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ConfirmID)));
@@ -502,7 +499,7 @@ public class Family extends PageObject {
     }
 
     @Step("Click on OKButton")
-    public void clickOKButton(){
+    public void clickOKButton() {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
         WebElement OKBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(OKButton)));
@@ -519,7 +516,7 @@ public class Family extends PageObject {
     //  }
 
     @Step("Select monthly income from dropdown")
-    public void selectMonthlyIncome(String MonthlyIncome){
+    public void selectMonthlyIncome(String MonthlyIncome) {
         WebElement dropdown = $(By.xpath(MonthlyIncomeXpath));
         Select selectObject = new Select(dropdown);
 
@@ -528,7 +525,7 @@ public class Family extends PageObject {
     }
 
     @Step("Select Occupation from dropdown")
-    public void selectOccupation(String Occupation){
+    public void selectOccupation(String Occupation) {
         WebElement dropdown = $(By.xpath(OccupationXpath));
         Select selectObject = new Select(dropdown);
 
@@ -537,9 +534,8 @@ public class Family extends PageObject {
     }
 
 
-
     @Step("Select Education from dropdown")
-    public void selectEduction(String Education){
+    public void selectEduction(String Education) {
         WebElement dropdown = $(By.xpath(EducationXpath));
         Select selectObject = new Select(dropdown);
 
@@ -547,7 +543,7 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Cell Number on field text ")
-    public void enterCellNum(String CellNumber){
+    public void enterCellNum(String CellNumber) {
 
         WebElement MobileNum = $(By.xpath(CellNumberXpath));
 
@@ -558,7 +554,7 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Postal Address on field text")
-    public void enterPostalAddress(String PostalAddress){
+    public void enterPostalAddress(String PostalAddress) {
 
         WebElement element = $(By.xpath(PostalAddressXpath));
 
@@ -567,7 +563,7 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Postal Code on field text")
-    public void enterPostalCode( String PostalCode){
+    public void enterPostalCode(String PostalCode) {
 
         WebElement element = $(By.xpath(PostalCodeXpath));
 
@@ -577,7 +573,7 @@ public class Family extends PageObject {
     }
 
     @Step("Click on Copy to Physical")
-    public void clickCopyPhysical(){
+    public void clickCopyPhysical() {
 
         WebElement element = $(By.xpath(CopyPhysicalXpath));
 
@@ -585,7 +581,7 @@ public class Family extends PageObject {
     }
 
     @Step("Click on Validate button")
-    public void clickValidateBtn()throws InterruptedException{
+    public void clickValidateBtn() throws InterruptedException {
         Thread.sleep(3000);
 
         WebElement element = $(By.xpath(ValidateBtnXpath));
@@ -595,7 +591,7 @@ public class Family extends PageObject {
     }
 
     @Step("Click on Save Main Member button")
-    public void clickSaveMMBtn(){
+    public void clickSaveMMBtn() {
 
         WebElement button = $(By.xpath(SaveMainMemberXpath));
 
@@ -603,14 +599,14 @@ public class Family extends PageObject {
     }
 
     @Step("Navigate Payer page")
-    public void navigatePayer()throws InterruptedException{
+    public void navigatePayer() throws InterruptedException {
         Thread.sleep(5000);
 
         $(By.xpath(PayerXpath)).click();
     }
 
     @Step("Select Tittle from dropdown")
-    public void selectTittle(String PayerTittle){
+    public void selectTittle(String PayerTittle) {
         WebElement tittleDropdown = $(By.xpath(PayerTittleXpath));
         Select selectObject = new Select(tittleDropdown);
 
@@ -619,7 +615,7 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Name on field text")
-    public void enterName(String PayerName){
+    public void enterName(String PayerName) {
         WebElement fieldText = $(By.xpath(PayerNameXpath));
         fieldText.click();
         fieldText.sendKeys(PayerName);
@@ -627,7 +623,7 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Surname on field text")
-    public void enterSurname(String PayerSurname){
+    public void enterSurname(String PayerSurname) {
         WebElement fieldText = $(By.xpath(PayerSurnameXpath));
         fieldText.click();
         fieldText.sendKeys(PayerSurname);
@@ -635,14 +631,14 @@ public class Family extends PageObject {
     }
 
     @Step("Click on Payer ID text field")
-    public void fieldTextID(){
+    public void fieldTextID() {
         WebElement fieldText = $(By.xpath(PayerIDXpath));
         fieldText.click();
     }
 
     @Step("Enter ID on MainInput PopUp")
-    public void mainIDPopUp(String PayerID){
-        WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(10));
+    public void mainIDPopUp(String PayerID) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
         WebElement mainID = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(MainIDXpath)));
         mainID.click();
@@ -651,8 +647,8 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Confirmation of ID on PopUp field text")
-    public void confirmationID(String PayerID){
-        WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(10));
+    public void confirmationID(String PayerID) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
         WebElement confirmID = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ConfirmIDXpath)));
         confirmID.click();
@@ -660,22 +656,22 @@ public class Family extends PageObject {
     }
 
     @Step("Click  OK button to capture ID")
-    public void clickOK()throws InterruptedException{
+    public void clickOK() throws InterruptedException {
         Thread.sleep(5000);
 
         $(By.xpath(OKPopUpXpath)).click();
     }
 
     @Step("Select the Relationship from dropdown list")
-    public void PayerRelation(String Relationship){
+    public void PayerRelation(String Relationship) {
         WebElement dropdown = $(By.xpath(PayerRelationXpath));
-        Select selectObject = new  Select(dropdown);
+        Select selectObject = new Select(dropdown);
 
         selectObject.selectByValue(Relationship);
     }
 
     @Step("Select Debit day from dropdown list")
-    public void selectDebit(String DebitDay){
+    public void selectDebit(String DebitDay) {
         WebElement dropdown = $(By.xpath(PayerDebitXpath));
         Select selectObject = new Select(dropdown);
 
@@ -683,7 +679,7 @@ public class Family extends PageObject {
     }
 
     @Step("Select Debit date from dropdown list")
-    public void selectDebiDate(String DebitDate){
+    public void selectDebiDate(String DebitDate) {
         WebElement dropdown = $(By.xpath(FirstDebitXpath));
         Select selectObject = new Select(dropdown);
 
@@ -691,7 +687,7 @@ public class Family extends PageObject {
     }
 
     @Step("Select Bank Name from dropdown list")
-    public void selectBank(String BankName){
+    public void selectBank(String BankName) {
         WebElement dropdown = $(By.xpath(BankNameXpath));
         Select selectObject = new Select(dropdown);
 
@@ -699,7 +695,7 @@ public class Family extends PageObject {
     }
 
     @Step("Select Branch Code from dropdown ")
-    public void selectBranch(String BranchCode){
+    public void selectBranch(String BranchCode) {
         WebElement dropdown = $(By.xpath(BranchCodeXpath));
         Select selectObject = new Select(dropdown);
 
@@ -708,7 +704,7 @@ public class Family extends PageObject {
     }
 
     @Step("Select Account Type from dropdown")
-    public void selectAccType(String AccountType){
+    public void selectAccType(String AccountType) {
         WebElement dropdown = $(By.xpath(AcctTypeXpath));
         Select selectObject = new Select(dropdown);
 
@@ -717,7 +713,7 @@ public class Family extends PageObject {
     }
 
     @Step("Click Account Number on the text field")
-    public void enterAccNum(){
+    public void enterAccNum() {
         WebElement element = $(By.xpath(BankAccNumXpath));
         element.click();
 
@@ -725,7 +721,7 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Account Number on Main text field")
-    public void enterMainAcc(String AccountNumber){
+    public void enterMainAcc(String AccountNumber) {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
         WebElement mainAcc = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(AccountXpath)));
@@ -735,7 +731,7 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Confirmation of Account number on the text field")
-    public void confirmAccount(String AccountNumber){
+    public void confirmAccount(String AccountNumber) {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
         WebElement mainAcc = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ConfAccXpath)));
@@ -745,12 +741,12 @@ public class Family extends PageObject {
     }
 
     @Step("Click OK button for Account number to be captured on the text field")
-    public void OKButton(){
+    public void OKButton() {
         $(By.xpath(OKButtonXpath)).click();
     }
 
     @Step("Enter Mobile Number on the text field")
-    public void enterMobiNum(String MobileNumber){
+    public void enterMobiNum(String MobileNumber) {
         WebElement element = $(By.xpath(MobileNumXpath));
         element.click();
         element.sendKeys(MobileNumber);
@@ -758,7 +754,7 @@ public class Family extends PageObject {
     }
 
     @Step("Select if Payer is employee from dropdown")
-    public  void isEmployee(String PayerIsEmployee){
+    public void isEmployee(String PayerIsEmployee) {
         WebElement dropdown = $(By.xpath(EmpStatusXpath));
         Select selectObject = new Select(dropdown);
 
@@ -767,7 +763,7 @@ public class Family extends PageObject {
     }
 
     @Step("Select All checkboxes for confirmations of a Payer ")
-    public void confCheckBoxes(){
+    public void confCheckBoxes() {
         WebElement checkbox = $(By.xpath(ConfirmCheckBoxXpath));
 
         if (!checkbox.isSelected()) {
@@ -783,14 +779,14 @@ public class Family extends PageObject {
     }
 
     @Step("Click on Save Payer Button")
-    public void clickSaveBtn()throws InterruptedException{
+    public void clickSaveBtn() throws InterruptedException {
         WebElement button = $(By.xpath(SavePayerXpath));
         button.click();
 
     }
 
     @Step("Navigate to Spouse Page")
-    public void navigateSpouse()throws InterruptedException{
+    public void navigateSpouse() throws InterruptedException {
         Thread.sleep(5000);
 
         $(By.xpath(SpouseXpath)).click();
@@ -798,7 +794,7 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Spouse Title")
-    public void spouseTitle(String spouseTitle){
+    public void spouseTitle(String spouseTitle) {
         WebElement Title = $(By.xpath("//select[@id='Title']"));
         Title.click();
         Title.sendKeys(spouseTitle);
@@ -806,21 +802,21 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Spouse Name")
-    public void spouseName(String spouseName){
+    public void spouseName(String spouseName) {
         WebElement Name = $(By.xpath("//input[@id='FirstNames']"));
         Name.click();
         Name.sendKeys(spouseName);
     }
 
     @Step("Enter Spouse Surname")
-    public void spouseSurName(String spouseSurname){
+    public void spouseSurName(String spouseSurname) {
         WebElement Surname = $(By.xpath("//input[@id='Surname']"));
         Surname.click();
         Surname.sendKeys(spouseSurname);
     }
 
     @Step("Enter Spouse Gender")
-    public void spouseGender(String spouseGender){
+    public void spouseGender(String spouseGender) {
 
         WebElement dropdown = $(By.xpath("//select[@id='Gender']"));
         Select selectObject = new Select(dropdown);
@@ -843,7 +839,7 @@ public class Family extends PageObject {
     }
 
     @Step("Navigate to Child Page")
-    public void navigateChild()throws InterruptedException{
+    public void navigateChild() throws InterruptedException {
         Thread.sleep(5000);
 
         $(By.xpath(ChildXpath)).click();
@@ -851,13 +847,13 @@ public class Family extends PageObject {
     }
 
     @Step("Click on Tab-Content")
-    public void clickTab(){
+    public void clickTab() {
         $(By.xpath("//*[@id=\"pills-tabContent\"]/child/div/div/div/div/div/div[2]/button")).click();
 
     }
 
     @Step("Enter Child Name")
-    public void enterChildName(String name){
+    public void enterChildName(String name) {
         WebElement Name = $(By.xpath("//input[@id='FirstNames']"));
         Name.click();
         Name.sendKeys(name);
@@ -865,7 +861,7 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Child Surname")
-    public void enterChildSurname(String surname){
+    public void enterChildSurname(String surname) {
         WebElement Surname = $(By.xpath("//input[@id='Surname']"));
         Surname.click();
         Surname.sendKeys(surname);
@@ -873,7 +869,7 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Child Gender")
-    public void selectGender(String Gender){
+    public void selectGender(String Gender) {
         WebElement gender = $(By.xpath("//select[@id='Gender']"));
         Select selectObject = new Select(gender);
         selectObject.selectByValue(Gender);
@@ -881,7 +877,7 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Child Identity Number")
-    public void enterChildID(String IDNumber){
+    public void enterChildID(String IDNumber) {
         WebElement ID = $(By.xpath("//input[@id='IdentityNumber']"));
         ID.click();
         ID.sendKeys(IDNumber);
@@ -889,7 +885,7 @@ public class Family extends PageObject {
     }
 
     @Step("Select Child if is student")
-    public void ChildIsStudent(String Student){
+    public void ChildIsStudent(String Student) {
         WebElement dropdown1 = $(By.xpath("//select[@id='IsStudent']"));
         Select selectObject1 = new Select(dropdown1);
         selectObject1.selectByValue(Student);
@@ -899,18 +895,17 @@ public class Family extends PageObject {
     }
 
     @Step("Navigate to extended member Page")
-    public void navigateExtend()throws InterruptedException{
+    public void navigateExtend() throws InterruptedException {
         Thread.sleep(5000);
 
         $(By.xpath(ExtendedXpath)).click();
         $(By.xpath("//*[@id=\"pills-tabContent\"]/extended-family/div/div[2]/div/div/div/div[2]/button")).click();
 
 
-
     }
 
     @Step("Select Tittle from dropdown")
-    public void Tittle(String extendTittle){
+    public void Tittle(String extendTittle) {
         WebElement tittleDropdown = $(By.xpath(ExtendedTittleXpath));
         Select selectObject = new Select(tittleDropdown);
 
@@ -919,7 +914,7 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Name on field text")
-    public void Name(String extendName){
+    public void Name(String extendName) {
         WebElement fieldText = $(By.xpath(ExtendedNameXpath));
         fieldText.click();
         fieldText.sendKeys(extendName);
@@ -927,7 +922,7 @@ public class Family extends PageObject {
     }
 
     @Step("Enter Surname on field text")
-    public void Surname(String extendSurname){
+    public void Surname(String extendSurname) {
         WebElement fieldText = $(By.xpath(ExtendedSurnameXpath));
         fieldText.click();
         fieldText.sendKeys(extendSurname);
@@ -935,15 +930,15 @@ public class Family extends PageObject {
     }
 
     @Step("Select the Relationship from dropdown list")
-    public void Relation(String Relationship){
+    public void Relation(String Relationship) {
         WebElement dropdown = $(By.xpath(ExtendedRelationshipXpath));
-        Select selectObject = new  Select(dropdown);
+        Select selectObject = new Select(dropdown);
 
         selectObject.selectByValue(Relationship);
     }
 
     @Step("Enter Extended member Gender")
-    public void Gender(String Gender){
+    public void Gender(String Gender) {
         WebElement gender = $(By.xpath("//select[@id='Gender']"));
         Select selectObject = new Select(gender);
         selectObject.selectByValue(Gender);
@@ -951,7 +946,7 @@ public class Family extends PageObject {
     }
 
     @Step("Enter extended member Identity Number")
-    public void extendID(String IDNumber){
+    public void extendID(String IDNumber) {
         WebElement ID = $(By.xpath("//input[@id='IdentityNumber']"));
         ID.click();
         ID.sendKeys(IDNumber);
@@ -968,25 +963,25 @@ public class Family extends PageObject {
 
 
     @FindBy(xpath = "(//div[@class='ngx-slider-inner-tooltip ng-star-inserted'])[1]")
-    private  WebElement slider;
+    private WebElement slider;
     @FindBy(xpath = "//span[2]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement slider1;
+    private WebElement slider1;
 
     @FindBy(xpath = "//span[3]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement slider2;
+    private WebElement slider2;
 
     @FindBy(xpath = "//span[4]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement slider3;
+    private WebElement slider3;
     @FindBy(xpath = "//span[5]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement slider4;
+    private WebElement slider4;
     @FindBy(xpath = "//span[6]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement slider5;
+    private WebElement slider5;
     @FindBy(xpath = "//span[7]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement slider6;
+    private WebElement slider6;
     @FindBy(xpath = "//span[8]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement slider7;
+    private WebElement slider7;
     @FindBy(xpath = "//span[9]//ngx-slider-tooltip-wrapper[1]//div[1]")
-    private  WebElement slider8;
+    private WebElement slider8;
 
     @Step("Select cover amount on slider")
     public void extendedCover(int coverAmount) throws InterruptedException {
@@ -995,23 +990,23 @@ public class Family extends PageObject {
 
         coverAmount = Math.max(minValue, Math.min(maxValue, coverAmount));
 
-        if (coverAmount == 10000){
+        if (coverAmount == 10000) {
             slider.click();
-        } else  if(coverAmount == 15000){
+        } else if (coverAmount == 15000) {
             slider1.click();
-        } else if (coverAmount == 20000){
+        } else if (coverAmount == 20000) {
             slider2.click();
-        } else if (coverAmount == 25000){
+        } else if (coverAmount == 25000) {
             slider3.click();
-        } else  if(coverAmount == 30000){
+        } else if (coverAmount == 30000) {
             slider4.click();
-        } else if (coverAmount == 35000){
+        } else if (coverAmount == 35000) {
             slider5.click();
-        } else if (coverAmount == 40000){
+        } else if (coverAmount == 40000) {
             slider6.click();
-        } else  if(coverAmount == 45000) {
+        } else if (coverAmount == 45000) {
             slider7.click();
-        } else  if(coverAmount == 50000) {
+        } else if (coverAmount == 50000) {
             slider8.click();
         }
 
@@ -1023,7 +1018,7 @@ public class Family extends PageObject {
     }
 
     @Step("Navigate to Beneficiary Page")
-    public void navigateBeneficiary()throws InterruptedException{
+    public void navigateBeneficiary() throws InterruptedException {
         Thread.sleep(5000);
 
         $(By.xpath(BeneficiaryXpath)).click();
@@ -1031,14 +1026,14 @@ public class Family extends PageObject {
     }
 
     @Step("Click on Add Beneficiary button")
-    public void addBeneficiary(){
+    public void addBeneficiary() {
 
         $(By.xpath(AddBenXpath)).click();
 
     }
 
     @Step("Select Member Estate from Relationship dropdown")
-    public void selectRelation(String Relationship){
+    public void selectRelation(String Relationship) {
         WebElement dropdown = $(By.xpath(RelationXpath));
         Select selectObject = new Select(dropdown);
 
@@ -1046,7 +1041,7 @@ public class Family extends PageObject {
     }
 
     @Step("Click Save Beneficiary Button")
-    public void saveBeneficiary()throws InterruptedException {
+    public void saveBeneficiary() throws InterruptedException {
 
         $(By.xpath(SaveBenXpath)).click();
         Thread.sleep(5000);
@@ -1057,7 +1052,7 @@ public class Family extends PageObject {
     }
 
     @Step("Navigate to FICA Page")
-    public void navigateFICA()throws  InterruptedException{
+    public void navigateFICA() throws InterruptedException {
         Thread.sleep(5000);
 
         $(By.xpath(FICAXpath)).click();
@@ -1075,7 +1070,7 @@ public class Family extends PageObject {
     }
 
     @Step("Navigate to Premium Page")
-    public void navigatePremium()throws InterruptedException{
+    public void navigatePremium() throws InterruptedException {
         Thread.sleep(5000);
 
         $(By.xpath(PremiumXpath)).click();
@@ -1093,7 +1088,7 @@ public class Family extends PageObject {
     }
 
     @Step("Navigate to Rewards Page")
-    public void navigateRewards()throws InterruptedException{
+    public void navigateRewards() throws InterruptedException {
         Thread.sleep(5000);
 
         $(By.xpath(RewardsXpath)).click();
@@ -1110,101 +1105,67 @@ public class Family extends PageObject {
     }
 
     @Step("Navigate to Summary Page")
-    public void navigateSummary()throws InterruptedException {
-        Thread.sleep(5000);
+    public void navigateSummary() throws InterruptedException {
+        Thread.sleep(10000);
 
         $(By.xpath(SummaryXpath)).click();
 
+        $(By.xpath("//*[@id=\"pills-tabContent\"]/accept-sale/div/div[3]/div/div/div/button")).click();
 
-        WebElement checkbox = $(By.xpath("(//input[@type='checkbox'])[1]"));
+        $(By.xpath("//input[@type='checkbox']")).click();
 
-        if (!checkbox.isSelected()) {
-            checkbox.click();
+        $(By.xpath("//button[contains(text(),'Conclude Sale')]")).click();
+
+        Thread.sleep(5000);
+
+
+        if (isPopupPresent()) {
+            $(By.xpath("//button[normalize-space()='Yes']")).click();
+        } else {
+            System.out.println("No popup detected. proceeding without clicking");
         }
 
-        WebElement checkbox1 = $(By.xpath("(//input[@type='checkbox'])[2]"));
+    }
 
-        if (!checkbox1.isSelected()) {
-            checkbox1.click();
-        }
-
-        WebElement checkbox2 = $(By.xpath("(//input[@type='checkbox'])[3]"));
-
-        if (!checkbox2.isSelected()) {
-            checkbox2.click();
-        }
-
-        WebElement checkbox3 = $(By.xpath("(//input[@type='checkbox'])[4]"));
-
-        if (!checkbox3.isSelected()) {
-            checkbox3.click();
-        }
-
-        WebElement checkbox4 = $(By.xpath("(//input[@type='checkbox'])[5]"));
-
-        if (!checkbox4.isSelected()) {
-            checkbox4.click();
-        }
-
-        WebElement checkbox5 = $(By.xpath("(//input[@type='checkbox'])[6]"));
-
-        if (!checkbox5.isSelected()) {
-            checkbox5.click();
-        }
-
-        WebElement concludeSale = $(By.xpath("//button[@type='button']"));
-        concludeSale.click();
-
-        WebElement concludePopUp = $(By.xpath("//button[contains(text(),'Conclude Sale')]"));
-        concludePopUp.click();
-        Thread.sleep(2000);
-
-//        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
-//        wait.until(ExpectedConditions.stalenessOf(concludePopUp));
-
-
-            if (isPopupPresent()) {
-                $(By.xpath("//button[normalize-space()='Yes']")).click();
-            } else {
-                System.out.println("No popup detected. proceeding without clicking");
-            }
-
-        }
-
-        private boolean isPopupPresent(){
-            try {
-                return $(By.xpath("//button[normalize-space()='Yes']")).isVisible();
+    private boolean isPopupPresent() throws InterruptedException {
+        try {
+            return $(By.xpath("//button[normalize-space()='Yes']")).isVisible();
 
         } catch (Exception e) {
             return false;
         }
 
+
     }
 
+
     @Step("Debi-check page")
-    public void debiCheck()throws InterruptedException{
-        Thread.sleep(13000);
+    public void debiCheck() throws InterruptedException {
+        Thread.sleep(20000);
 
 
         $(By.xpath(ConfirmDebiCheckXpath)).click();
         Thread.sleep(2000);
 
 
-        $(By.xpath("//span[@class='title'][1]")).click();
-
+        $(By.xpath("(//button[@type='button'])[1]")).click();
 
 
     }
 
+    @Step("Second sale")
+    public void SecondSaleIiII() {
+        $(By.xpath("//button[normalize-space()='Yes']")).click();
+    }
+
     @Step("View summary table page")
-    public void summaryTable()throws InterruptedException{
-        WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(10));
+    public void summaryTable() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
         WebElement bootstrap = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(SummaryTableXpath)));
         bootstrap.click();
 
+
     }
+
 }
-
-
-

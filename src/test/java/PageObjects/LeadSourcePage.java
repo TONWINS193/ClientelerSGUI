@@ -14,7 +14,7 @@ import java.util.List;
 
 public class LeadSourcePage extends PageObject {
 
-    String Url = "https://shambawebtest.clientele.co.za/shambaweb/login";
+    String Url = "http://shambawebuat.clientele.local/shambaweb/";
 
     String LoginBtn = "//*[@id=\"navbarSupportedContent\"]/div/div/button/span";
     String UserName = "//*[@id=\"i0116\"]";

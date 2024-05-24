@@ -19,7 +19,7 @@ public class ClienteleWealthPlanStep extends PageObject {
     @When("User log in with Valid Credentials by entering")
     public void user_log_in_with_valid_credentials_by_entering() throws InterruptedException {
         clienteleWealthPlan.clickArrowButton();
-        clienteleWealthPlan.PopUpLogin("WRambau", "TonWins@2024");
+        clienteleWealthPlan.PopUpLogin("WRambau", "Clientele#2024");
         clienteleWealthPlan.LoginButton();
         clienteleWealthPlan.ClienteleLogo();
         clienteleWealthPlan.CaptureSale();
@@ -60,6 +60,15 @@ public class ClienteleWealthPlanStep extends PageObject {
         clienteleWealthPlan.clickSaveMMBtn();
 
     }
+
+    @Then("user confirms Beneficiary details, {string}")
+    public void userConfirmsBeneficiaryDetails(String string ) throws InterruptedException {
+        clienteleWealthPlan.navigateBeneficiary();
+        clienteleWealthPlan.addBeneficiary();
+        clienteleWealthPlan.selectRelation(string);
+        clienteleWealthPlan.saveBeneficiary();
+
+    }
     @Then("User Add payer details by Capturing, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
     public void user_add_payer_details_by_capturing(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13, String string14, String string15) throws InterruptedException {
         clienteleWealthPlan.navigatePayer();
@@ -87,21 +96,16 @@ public class ClienteleWealthPlanStep extends PageObject {
 
     }
 
-    @When("user confirms Beneficiary, FICA and Premium Rates by capturing necessary details, {string}, {string}, {string}, {string}")
-    public void user_confirms_beneficiary_fica_and_premium_rates_by_capturing_necessary_details(String string, String string2, String string3, String string4) throws InterruptedException {
-        clienteleWealthPlan.navigateBeneficiary();
-        clienteleWealthPlan.addBeneficiary();
-        clienteleWealthPlan.selectRelation(string);
-        clienteleWealthPlan.saveBeneficiary();
+    @Then("user proceed with the Cover, FICA and Premium Rates by capturing necessary details and Conclude sale. {string},{string}, {string}")
+    public void userProceedWithTheCoverFICAAndPremiumRatesByCapturingNecessaryDetailsAndConcludeSale( String string2, String string3, String string4) throws InterruptedException {
         clienteleWealthPlan.navigateFICA(string2, string3);
         clienteleWealthPlan.navigatePremium(string4);
-    }
-    @Then("user proceed with the Cover and Conclude sale.")
-    public void user_proceed_with_the_cover_and_conclude_sale() throws InterruptedException {
         clienteleWealthPlan.navigateRewards();
         clienteleWealthPlan.navigateSummary();
         clienteleWealthPlan.debiCheck();
+        clienteleWealthPlan.SecondSaleIiII();
         clienteleWealthPlan.summaryTable();
+
 
 
     }

@@ -80,6 +80,15 @@ public class IndividualCover25KStep extends PageObject {
         individualCover25K.clickSaveMMBtn();
 
     }
+    @When("User Confirms Beneficiary, {string}")
+    public void userConfirmsBeneficiary(String string) throws InterruptedException {
+        individualCover25K.navigateBeneficiary();
+        individualCover25K.addBeneficiary();
+        individualCover25K.selectRelation(string);
+        individualCover25K.saveBeneficiary();
+
+
+    }
     @When("user Add Payer Details by capturing, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
     public void user_add_payer_details_by_capturing(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13) throws InterruptedException {
         individualCover25K.navigatePayer();
@@ -103,32 +112,28 @@ public class IndividualCover25KStep extends PageObject {
 
 
     }
-    @Then("User add Government Details if selected Yes, {string}, {string}, {string}, {string}, {string}")
-    public void user_add_government_details_if_selected_yes(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
+    @Then("User add Government Details if selected Yes, FICA and Premium Rates by capturing necessary Details, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void userAddGovernmentDetailsIfSelectedYesFICAAndPremiumRatesByCapturingNecessaryDetails(String string, String string2, String string3, String string4, String string5, String string6, String string7) throws InterruptedException {
         individualCover25K.addGSD(string, string2, string3);
         individualCover25K.confCheckBoxes();
         individualCover25K.selectDebit(string4);
         individualCover25K.selectDebiDate(string5);
         individualCover25K.clickSaveBtn();
-
-    }
-    @When("User Confirms Beneficiary, FICA and Premium Rates by capturing necessary Details, {string}, {string}, {string}")
-    public void user_confirms_beneficiary_fica_and_premium_rates_by_capturing_necessary_details(String string, String string2, String string3) throws InterruptedException {
-        individualCover25K.navigateBeneficiary();
-        individualCover25K.addBeneficiary();
-        individualCover25K.selectRelation(string);
-        individualCover25K.saveBeneficiary();
-        individualCover25K.navigateFICA(string2, string3);
+        individualCover25K.navigateFICA(string6, string7);
         individualCover25K.navigatePremium();
 
     }
+
     @Then("user Proceed with the Cover and Conclude sale.")
     public void user_proceed_with_the_cover_and_conclude_sale() throws InterruptedException {
-        individualCover25K.navigateRewards();
+       // individualCover25K.navigateRewards();
         individualCover25K.navigateSummary();
         individualCover25K.PopUPCheckboxes();
+        individualCover25K.SecondSaleIiII();
         individualCover25K.summaryTable();
 
+
     }
+
 
 }

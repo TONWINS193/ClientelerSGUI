@@ -91,7 +91,7 @@ public class Individual extends PageObject {
 
     String SaveMainMemberXpath = "//*[@id=\"pills-tabContent\"]/member/div/div[2]/div/div[2]/button";
 
-    String PayerXpath ="/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[2]/div[2]";
+    String PayerXpath ="/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[6]/div[2]";
 
     String PayerTittleXpath = "//select[@id='Title']";
 
@@ -141,7 +141,7 @@ public class Individual extends PageObject {
 
     String ChildXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[4]/div[2]";
 
-    String ExtendedXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[5]/div[1]";
+    String ExtendedXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[4]/div[1]";
 
     String ExtendedTittleXpath = "//select[@id='Title']";
 
@@ -151,7 +151,7 @@ public class Individual extends PageObject {
 
     String ExtendedRelationshipXpath = "//*[@id=\"RelationToMember\"]";
 
-    String BeneficiaryXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[6]/div[2]";
+    String BeneficiaryXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[5]/div[2]";
 
     String AddBenXpath = "//button[@class='mat-focus-indicator mat-flat-button mat-button-base mat-primary']";
 
@@ -165,7 +165,7 @@ public class Individual extends PageObject {
 
     String RewardsXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[9]/div[2]";
 
-    String SummaryXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[10]/div[2]";
+    String SummaryXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/sale-capture-control/div/div[1]/div/ul/li[9]/div[2]";
 
     String ConfirmDebiCheckXpath = "//input[@type='checkbox'][1]";
 
@@ -998,57 +998,19 @@ public class Individual extends PageObject {
     }
 
     @Step("Navigate to Summary Page")
-    public void navigateSummary()throws InterruptedException{
-        Thread.sleep(5000);
+    public void navigateSummary() throws InterruptedException {
+        Thread.sleep(10000);
 
         $(By.xpath(SummaryXpath)).click();
 
+        $(By.xpath("//*[@id=\"pills-tabContent\"]/accept-sale/div/div[3]/div/div/div/button")).click();
 
-        WebElement checkbox = $(By.xpath("(//input[@type='checkbox'])[1]"));
+        $(By.xpath("//input[@type='checkbox']")).click();
 
-        if (!checkbox.isSelected()) {
-            checkbox.click();
-        }
+        $(By.xpath("//button[contains(text(),'Conclude Sale')]")).click();
 
-        WebElement checkbox1 = $(By.xpath("(//input[@type='checkbox'])[2]"));
+        Thread.sleep(5000);
 
-        if (!checkbox1.isSelected()) {
-            checkbox1.click();
-        }
-
-        WebElement checkbox2 = $(By.xpath("(//input[@type='checkbox'])[3]"));
-
-        if (!checkbox2.isSelected()) {
-            checkbox2.click();
-        }
-
-        WebElement checkbox3 = $(By.xpath("(//input[@type='checkbox'])[4]"));
-
-        if (!checkbox3.isSelected()) {
-            checkbox3.click();
-        }
-
-        WebElement checkbox4 = $(By.xpath("(//input[@type='checkbox'])[5]"));
-
-        if (!checkbox4.isSelected()) {
-            checkbox4.click();
-        }
-
-        WebElement checkbox5 = $(By.xpath("(//input[@type='checkbox'])[6]"));
-
-        if (!checkbox5.isSelected()) {
-            checkbox5.click();
-        }
-
-        WebElement concludeSale = $(By.xpath("//button[@type='button']"));
-        concludeSale.click();
-
-        WebElement concludePopUp = $(By.xpath("//button[contains(text(),'Conclude Sale')]"));
-        concludePopUp.click();
-        Thread.sleep(2000);
-
-//        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
-//        wait.until(ExpectedConditions.stalenessOf(concludePopUp));
 
         if (isPopupPresent()) {
             $(By.xpath("//button[normalize-space()='Yes']")).click();
@@ -1058,7 +1020,7 @@ public class Individual extends PageObject {
 
     }
 
-    private boolean isPopupPresent(){
+    private boolean isPopupPresent() throws InterruptedException {
         try {
             return $(By.xpath("//button[normalize-space()='Yes']")).isVisible();
 
@@ -1069,27 +1031,33 @@ public class Individual extends PageObject {
 
     }
 
+
     @Step("Debi-check page")
-    public void debiCheck()throws InterruptedException{
-        Thread.sleep(13000);
+    public void debiCheck() throws InterruptedException {
+        Thread.sleep(20000);
 
 
         $(By.xpath(ConfirmDebiCheckXpath)).click();
         Thread.sleep(2000);
 
 
-        $(By.xpath("//span[@class='title'][1]")).click();
-
+        $(By.xpath("(//button[@type='button'])[1]")).click();
 
 
     }
 
+    @Step("Second sale")
+    public void SecondSaleIiII() {
+        $(By.xpath("//button[normalize-space()='Yes']")).click();
+    }
+
     @Step("View summary table page")
-    public void summaryTable()throws InterruptedException{
-        WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(10));
+    public void summaryTable() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
         WebElement bootstrap = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(SummaryTableXpath)));
         bootstrap.click();
+
 
     }
 

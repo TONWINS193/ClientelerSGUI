@@ -650,30 +650,20 @@ public class ClientelePerks extends PageObject {
         savePremium.click();
 
     }
-
     @Step("Navigate to Summary Page")
-    public void navigateSummary()throws InterruptedException{
+    public void navigateSummary()throws InterruptedException {
+        Thread.sleep(10000);
+
+        $(By.xpath(SummaryXpath)).click();
+
+        $(By.xpath("//*[@id=\"pills-tabContent\"]/accept-sale/div/div[3]/div/div/div/button")).click();
+
+        $(By.xpath("//input[@type='checkbox']")).click();
+
+        $(By.xpath("//button[contains(text(),'Conclude Sale')]")).click();
+
         Thread.sleep(5000);
 
-        $(By.xpath(SummaryXpath)) .click();
-
-
-        WebElement checkbox = $(By.xpath("(//input[@type='checkbox'])[1]"));
-
-        if (!checkbox.isSelected()) {
-            checkbox.click();
-        }
-
-        WebElement concludeSale = $(By.xpath("//button[@type='button']"));
-        concludeSale.click();
-
-
-        WebElement concludePopUp = $(By.xpath("//button[contains(text(),'Conclude Sale')]"));
-        concludePopUp.click();
-        Thread.sleep(2000);
-
-//        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
-//        wait.until(ExpectedConditions.stalenessOf(concludePopUp));
 
         if (isPopupPresent()) {
             $(By.xpath("//button[normalize-space()='Yes']")).click();
@@ -683,7 +673,7 @@ public class ClientelePerks extends PageObject {
 
     }
 
-    private boolean isPopupPresent(){
+    private boolean isPopupPresent() throws InterruptedException {
         try {
             return $(By.xpath("//button[normalize-space()='Yes']")).isVisible();
 
@@ -691,19 +681,31 @@ public class ClientelePerks extends PageObject {
             return false;
         }
 
+
     }
+
+
+
 
     @Step("Debi-check page")
     public void debiCheck()throws InterruptedException{
-        Thread.sleep(7000);
+        Thread.sleep(20000);
 
 
         $(By.xpath(ConfirmDebiCheckXpath)).click();
         Thread.sleep(2000);
 
 
-        $(By.xpath("//span[@class='title'][1]")).click();
+        $(By.xpath("(//button[@type='button'])[1]")).click();
 
+
+
+
+
+    }
+    @Step("Second sale")
+    public void SecondSaleIiII(){
+        $(By.xpath("//button[normalize-space()='Yes']")).click();
     }
 
     @Step("View summary table page")
@@ -712,6 +714,9 @@ public class ClientelePerks extends PageObject {
 
         WebElement bootstrap = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(SummaryTableXpath)));
         bootstrap.click();
+
+
+
 
 
     }

@@ -129,10 +129,12 @@ public class IndividualStep extends PageObject {
         individual.saveBeneficiary();
         individual.navigateFICA();
         individual.navigatePremium();
-        individual.navigateRewards();
+      //  individual.navigateRewards();
         individual.navigateSummary();
         individual.debiCheck();
+        individual.SecondSaleIiII();
         individual.summaryTable();
+
 
     }
 

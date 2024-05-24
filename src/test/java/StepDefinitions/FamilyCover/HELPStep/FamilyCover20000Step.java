@@ -22,7 +22,7 @@ public class FamilyCover20000Step extends PageObject {
     @When("User log in with valid credentials By entering")
     public void user_log_in_with_valid_credentials_by_entering() throws InterruptedException {
         familyCover20000.clickArrowButton();
-        familyCover20000.PopUpLogin("WRambau", "TonWins#2024");
+        familyCover20000.PopUpLogin("WRambau", "Clientele#2024");
         familyCover20000.LoginButton();
         familyCover20000.ClienteleLogo();
         familyCover20000.CaptureSale();
@@ -81,7 +81,36 @@ public class FamilyCover20000Step extends PageObject {
         familyCover20000.clickSaveMMBtn();
 
     }
-    @When("User add payer details By Capturing, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+
+    @When("User add spouse details By Capturing, {string}, {string}, {string}, {string}, {string}")
+    public void user_add_spouse_details_by_capturing(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
+        familyCover20000.navigateSpouse();
+        familyCover20000.spouseTitle(string);
+        familyCover20000.spouseName(string2);
+        familyCover20000.spouseSurName(string3);
+        familyCover20000.spouseGender(string4);
+        familyCover20000.spouseID(string5);
+
+    }
+    @Then("User add child details By Capturing, {string}, {string}, {string}, {string}, {string}")
+    public void user_add_child_details_by_capturing(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
+        familyCover20000.navigateChild();
+        familyCover20000.clickTab();
+        familyCover20000.enterChildName(string);
+        familyCover20000.enterChildSurname(string2);
+        familyCover20000.selectGender(string3);
+        familyCover20000.enterChildID(string4);
+        familyCover20000.ChildIsStudent(string5);
+    }
+    @When("user Proceed with capturing beneficiary details.")
+    public void userProceedWithCapturingBeneficiaryDetails() throws InterruptedException {
+        familyCover20000.navigateBeneficiary();
+        familyCover20000.addBeneficiary();
+        familyCover20000.selectRelation("Member Estate");
+        familyCover20000.saveBeneficiary();
+
+    }
+    @Then("User add payer details By Capturing, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
     public void user_add_payer_details_by_capturing(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13, String string14, String string15) throws InterruptedException {
         familyCover20000.navigatePayer();
         familyCover20000.selectTittle(string);
@@ -105,41 +134,17 @@ public class FamilyCover20000Step extends PageObject {
         familyCover20000.isEmployee(string15);
         familyCover20000.confCheckBoxes();
         familyCover20000.clickSaveBtn();
-
-
-    }
-    @Then("User add spouse details By Capturing, {string}, {string}, {string}, {string}, {string}")
-    public void user_add_spouse_details_by_capturing(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
-        familyCover20000.navigateSpouse();
-        familyCover20000.spouseTitle(string);
-        familyCover20000.spouseName(string2);
-        familyCover20000.spouseSurName(string3);
-        familyCover20000.spouseGender(string4);
-        familyCover20000.spouseID(string5);
-
-    }
-    @When("User add child details By Capturing, {string}, {string}, {string}, {string}, {string}")
-    public void user_add_child_details_by_capturing(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
-        familyCover20000.navigateChild();
-        familyCover20000.clickTab();
-        familyCover20000.enterChildName(string);
-        familyCover20000.enterChildSurname(string2);
-        familyCover20000.selectGender(string3);
-        familyCover20000.enterChildID(string4);
-        familyCover20000.ChildIsStudent(string5);
-    }
-    @Then("user Proceed with the Cover and conclude sale..")
-    public void user_proceed_with_the_cover_and_conclude_sale() throws InterruptedException {
-        familyCover20000.navigateBeneficiary();
-        familyCover20000.addBeneficiary();
-        familyCover20000.selectRelation("Member Estate");
-        familyCover20000.saveBeneficiary();
         familyCover20000.navigateFICA();
         familyCover20000.navigatePremium();
-        familyCover20000.navigateRewards();
+       // familyCover20000.navigateRewards();
         familyCover20000.navigateSummary();
         familyCover20000.debiCheck();
+        familyCover20000.SecondSaleIiII();
         familyCover20000.summaryTable();
+
+
+
+
 
     }
 

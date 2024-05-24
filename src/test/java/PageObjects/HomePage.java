@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class HomePage extends PageObject {
 
-    String Url = "https://shambawebtest.clientele.co.za/shambaweb/";
+    String Url = "http://shambawebuat.clientele.local/shambaweb/";
 
     String ArrowButtonXpath = "//i[@class='bi bi-box-arrow-right profile-icon profile-icon-default']";
 

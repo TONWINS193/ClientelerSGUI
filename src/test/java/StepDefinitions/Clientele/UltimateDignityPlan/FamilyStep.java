@@ -157,10 +157,12 @@ public class FamilyStep extends PageObject {
         family.saveBeneficiary();
         family.navigateFICA();
         family.navigatePremium();
-        family.navigateRewards();
+        //family.navigateRewards();
         family.navigateSummary();
         family.debiCheck();
+        family.SecondSaleIiII();
         family.summaryTable();
+
 
     }
 
