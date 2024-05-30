@@ -10,9 +10,10 @@ Feature:Clientele Ultimate Dignity plan Functionality
     Then User select the Date of birth of the main life assured "<MemberDOB>"
     When User on the slider select the cover amounts that are applicable to the plan chosen <CoverAmount>
     Then user add member details by capturing "<MemberTitle>", "<MemberName>", "<MemberSurname>", "<MemberCitizenShip>", "<MemberID>", "<ConfirmID>", "<MonthlyIncome>", "<Occupation>", "<Education>", "<CellNumber>", "<PostalAddress>", "<PostalCode>"
-    When user add payer details by capturing "<PayerTitle>", "<PayerName>", "<PayerSurname>", "<PayerID>", "<ConfirmPayerID>", "<PayerRelation>", "<DebitDay>", "<DebitDate>", "<BankName>", "<BranchCode>", "<AccountType>", "<AccountNumber>", "<ConfirmAccount>", "<MobileNumber>", "<IsPayerEmployee>"
     Then user add extended member by capturing "<Tittle>", "<Name>", "<Surname>", "<Relation>", "<Gender>", "<extendID>", "<PremiumPayBack>"
     When user add cover amount on the slider of extended family <coverAmount>
+    When user add payer details by capturing "<PayerTitle>", "<PayerName>", "<PayerSurname>", "<PayerID>", "<ConfirmPayerID>", "<PayerRelation>", "<DebitDay>", "<DebitDate>", "<BankName>", "<BranchCode>", "<AccountType>", "<AccountNumber>", "<ConfirmAccount>", "<MobileNumber>", "<IsPayerEmployee>"
+
     Then User proceed with the Cover and conclude sale....
 
     Examples:

@@ -21,7 +21,7 @@ public class FamilyStep extends PageObject {
     @When("user log in with valid Credentials by entering.")
     public void userLogInWithValidCredentialsByEntering() throws InterruptedException {
         family.clickArrowButton();
-        family.PopUpLogin("WRambau", "TonWins@2024");
+        family.PopUpLogin("WRambau", "WRambau@2024");
         family.LoginButton();
         family.ClienteleLogo();
         family.CaptureSale();
@@ -80,32 +80,7 @@ public class FamilyStep extends PageObject {
         family.clickSaveMMBtn();
 
     }
-    @When("user add payer details by capturing. {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void userAddPayerDetailsByCapturing(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13, String string14, String string15) throws InterruptedException {
-        family.navigatePayer();
-        family.selectTittle(string);
-        family.enterName(string2);
-        family.enterSurname(string3);
-        family.fieldTextID();
-        family.mainIDPopUp(string4);
-        family.confirmationID(string5);
-        family.clickOK();
-        family.PayerRelation(string6);
-        family.selectDebit(string7);
-        family.selectDebiDate(string8);
-        family.selectBank(string9);
-        family.selectBranch(string10);
-        family.selectAccType(string11);
-        family.enterAccNum();
-        family.enterMainAcc(string12);
-        family.confirmAccount(string13);
-        family.OKButton();
-        family.enterMobiNum(string14);
-        family.isEmployee(string15);
-        family.confCheckBoxes();
-        family.clickSaveBtn();
 
-    }
 
     @Then("user add spouse details by capturing. {string}, {string}, {string}, {string}, {string}")
     public void userAddSpouseDetailsByCapturing(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
@@ -149,12 +124,39 @@ public class FamilyStep extends PageObject {
     public void userAddCoverAmountOnTheSliderOfExtendedFamily(Integer int1) throws InterruptedException {
         family.extendedCover(int1);
     }
-    @Then("User proceed with the Cover and conclude sale...")
-    public void userProceedWithTheCoverAndConcludeSale() throws InterruptedException {
+    @When("user add payer details by capturing. {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void userAddPayerDetailsByCapturing(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13, String string14, String string15) throws InterruptedException {
         family.navigateBeneficiary();
         family.addBeneficiary();
         family.selectRelation("Member Estate");
         family.saveBeneficiary();
+        family.navigatePayer();
+        family.selectTittle(string);
+        family.enterName(string2);
+        family.enterSurname(string3);
+        family.fieldTextID();
+        family.mainIDPopUp(string4);
+        family.confirmationID(string5);
+        family.clickOK();
+        family.PayerRelation(string6);
+        family.selectDebit(string7);
+        family.selectDebiDate(string8);
+        family.selectBank(string9);
+        family.selectBranch(string10);
+        family.selectAccType(string11);
+        family.enterAccNum();
+        family.enterMainAcc(string12);
+        family.confirmAccount(string13);
+        family.OKButton();
+        family.enterMobiNum(string14);
+        family.isEmployee(string15);
+        family.confCheckBoxes();
+        family.clickSaveBtn();
+
+    }
+
+    @Then("User proceed with the Cover and conclude sale...")
+    public void userProceedWithTheCoverAndConcludeSale() throws InterruptedException {
         family.navigateFICA();
         family.navigatePremium();
         //family.navigateRewards();
